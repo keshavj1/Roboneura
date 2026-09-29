@@ -1,11 +1,15 @@
+import { lazy } from 'react';
 import { IconBox } from '../../components/ui/IconBox';
-import { Img } from '../../components/ui/Img';
 import { Reveal } from '../../components/ui/Reveal';
 import { Section } from '../../components/ui/Section';
 import { SectionHeading } from '../../components/ui/SectionHeading';
 import { reasons } from '../../data/company';
 import { img } from '../../lib/assets';
 import { hueAt } from '../../lib/hues';
+import { LazyScene } from './LazyScene';
+
+// 3D robot, rover and drone (three.js), loaded after the page has rendered.
+const FleetScene = lazy(() => import('./three/FleetScene'));
 
 export function WhyChoose() {
   return (
@@ -26,13 +30,7 @@ export function WhyChoose() {
           </ul>
         </Reveal>
         <div className="why__visual">
-          <div className="why__float">
-            <Img
-              src={img('why-choose.webp')}
-              alt="A quadruped robot carrying a drone across a mountain ridge at sunset"
-              className="why__image"
-            />
-          </div>
+          <LazyScene scene={FleetScene} poster={img('fleet-3d.webp')} width="1000" height="1000" className="why-scene" />
         </div>
       </div>
     </Section>

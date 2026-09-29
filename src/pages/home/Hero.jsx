@@ -1,6 +1,11 @@
+import { lazy } from 'react';
 import { Button } from '../../components/ui/Button';
 import { PlayCircleIcon } from '../../components/ui/icons';
-import { HeroDrone } from './HeroDrone';
+import { img } from '../../lib/assets';
+import { LazyScene } from './LazyScene';
+
+// three.js is large, so the 3D scene is its own chunk, fetched after the page has rendered.
+const DroneScene = lazy(() => import('./three/DroneScene'));
 
 // Same seeded particle field as the design: deterministic, computed once.
 const PARTICLES = (() => {
@@ -61,7 +66,7 @@ export function Hero({ onWatchVideo }) {
         </div>
 
         <div className="hero__visual">
-          <HeroDrone />
+          <LazyScene scene={DroneScene} poster={img('drone-3d.webp')} width="1000" height="900" className="hero-drone" />
           <p className="hero__tagline">
             Autonomous
             <br />

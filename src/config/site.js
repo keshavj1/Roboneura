@@ -47,7 +47,8 @@ export const site = {
 
   flags: {
     // Shows the small "* Placeholder…" notes next to figures that still need verified data.
-    showPlaceholderNotes: true,
+    // Hidden on request; the figures, roles, articles and legal text are still examples (see README).
+    showPlaceholderNotes: false,
     // The logo loading screen on first visit.
     showPreloader: true,
     // Address / email / office-hours bar above the menu on wide screens (hidden on request).

@@ -1,4 +1,3 @@
-import { PlaceholderNote } from '../../components/ui/PlaceholderNote';
 import { clients } from '../../data/company';
 
 // Each track half holds the list twice so the loop stays seamless on wide screens.
@@ -11,7 +10,6 @@ export function ClientsMarquee() {
         <h2 id="clients-title" className="clients__title">
           Trusted by teams across industry
         </h2>
-        <PlaceholderNote className="clients__note">(logo placeholders)</PlaceholderNote>
       </div>
       <div className="marquee">
         <div className="marquee__track">

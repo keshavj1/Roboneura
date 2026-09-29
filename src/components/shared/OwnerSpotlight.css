@@ -1,66 +1,91 @@
-/* Portrait with a tinted backplate, a dot pattern and a designation badge */
-.owner-portrait {
+/* Directors panel: navy card with the logo, "Board of Directors" and one row per director. */
+.directors-panel {
   position: relative;
-  width: 100%;
-  max-width: 440px;
-  margin-inline: auto;
-  padding: 0 0 26px 26px;
-}
-
-.owner-portrait::before {
-  content: '';
-  position: absolute;
-  inset: 26px 26px 0 0;
-  border-radius: var(--r-xl);
-  background: var(--accent-100);
-}
-
-.owner-portrait::after {
-  content: '';
-  position: absolute;
-  top: -18px;
-  right: -18px;
-  width: 112px;
-  height: 112px;
-  background-image: radial-gradient(rgb(var(--accent-ink-rgb) / 0.35) 2px, transparent 2.5px);
-  background-size: 16px 16px;
-}
-
-.owner-portrait__frame {
-  position: relative;
-  z-index: 1;
   overflow: hidden;
+  width: 100%;
+  max-width: 460px;
+  margin-inline: auto;
+  padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 40px) clamp(32px, 4vw, 44px);
   border-radius: var(--r-xl);
+  background-image: var(--grid-lines), var(--grad-page-hero);
+  background-size: auto;
+  color: #fff;
   box-shadow: var(--shadow-float);
 }
 
-.owner-portrait__badge {
+/* Logo stripe along the bottom edge */
+.directors-panel::after {
+  content: '';
   position: absolute;
-  left: 0;
-  bottom: 64px;
-  z-index: 2;
+  inset: auto 0 0;
+  height: 4px;
+  background: var(--brand-rule);
+}
+
+.directors-panel__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.directors-panel__mark {
+  flex: none;
+  width: auto;
+  height: 42px;
+}
+
+.directors-panel__company {
+  font-size: 11.5px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.directors-panel__title {
+  margin-top: 28px;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 26px);
+  font-weight: var(--fw-semibold);
+  line-height: 1.25;
+  color: #fff;
+}
+
+.directors-panel__list {
+  margin-top: 18px;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.directors-panel__item {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  max-width: calc(100% - 40px);
-  padding: 16px 22px 16px 18px;
-  border-left: 5px solid var(--navy-900);
-  border-radius: 0 var(--r-xs) var(--r-xs) 0;
-  background: var(--accent-fill);
-  color: var(--on-accent);
-  box-shadow: 0 16px 36px rgb(var(--accent-fill-rgb) / 0.3);
+  gap: 4px;
+  padding: 18px 0 18px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 3px 0 0 var(--accent);
 }
 
-.owner-portrait__badge-title {
+.directors-panel__item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.directors-panel__name {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: clamp(20px, 2.2vw, 24px);
   font-weight: var(--fw-semibold);
   line-height: 1.3;
+  color: #fff;
 }
 
-.owner-portrait__badge-sub {
-  font-size: 13px;
-  opacity: 0.85;
+.directors-panel__role {
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 /* "Meet the Owner" section */
@@ -124,27 +149,4 @@
 
 .owner-spot__cta {
   margin-top: 26px;
-}
-
-@media (max-width: 480px) {
-  .owner-portrait {
-    padding: 0 0 18px 18px;
-  }
-
-  .owner-portrait::before {
-    inset: 18px 18px 0 0;
-  }
-
-  .owner-portrait::after {
-    display: none;
-  }
-
-  .owner-portrait__badge {
-    bottom: 40px;
-    padding: 12px 16px 12px 14px;
-  }
-
-  .owner-portrait__badge-title {
-    font-size: 15px;
-  }
 }

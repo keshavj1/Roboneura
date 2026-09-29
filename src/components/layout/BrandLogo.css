@@ -67,3 +67,22 @@
     font-size: 7.5px;
   }
 }
+
+/* Narrow phones: the footer logo (about 317px wide) would not fit beside the page margins. */
+@media (max-width: 420px) {
+  .brand--lg {
+    gap: 12px;
+  }
+
+  .brand--lg .brand__mark {
+    height: 48px;
+  }
+
+  .brand--lg .brand__wordmark {
+    height: 16px;
+  }
+
+  .brand--lg .brand__sub {
+    font-size: 8.8px;
+  }
+}

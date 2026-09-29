@@ -1,23 +1,25 @@
 import { Link } from 'react-router';
 import { CtaBanner } from '../../components/shared/CtaBanner';
-import { OwnerPortrait } from '../../components/shared/OwnerSpotlight';
+import { DirectorsPanel } from '../../components/shared/OwnerSpotlight';
 import { PageHero } from '../../components/shared/PageHero';
 import { Button } from '../../components/ui/Button';
 import { IconBox } from '../../components/ui/IconBox';
-import { ArrowRightIcon, LinkedinLogoIcon, QuotesIcon } from '../../components/ui/icons';
+import { ArrowRightIcon, QuotesIcon } from '../../components/ui/icons';
 import { PlaceholderNote } from '../../components/ui/PlaceholderNote';
 import { Reveal } from '../../components/ui/Reveal';
 import { Section } from '../../components/ui/Section';
 import { SectionHeading } from '../../components/ui/SectionHeading';
 import { Seo } from '../../components/ui/Seo';
+import { TitleText } from '../../components/ui/TitleText';
 import { site } from '../../config/site';
-import { owner } from '../../data/owner';
+import { directorNames, owner } from '../../data/owner';
 import { solutions } from '../../data/solutions';
 import { hueAt } from '../../lib/hues';
 import './owner.css';
 
 const facts = [
   { label: 'Company', value: site.legalName },
+  { label: 'Directors', value: owner.directors.map((d) => d.name).join(', ') },
   { label: 'Based in', value: 'Lucknow, Uttar Pradesh, India' },
   { label: 'Focus', value: solutions.map((s) => s.title).join(' · ') },
 ];
@@ -26,29 +28,27 @@ export default function OwnerPage() {
   return (
     <>
       <Seo
-        title="Owner"
-        description="Meet the owner of ROBONEURA DYNAMICS PRIVATE LIMITED and read their message on building robots, drones and automation that do real work."
+        title="Owners & Directors"
+        description={`Meet the directors of ROBONEURA DYNAMICS PRIVATE LIMITED, ${owner.directors.map((d) => d.name).join(' and ')}, and read their message on building robots, drones and automation that do real work.`}
       />
       <PageHero
         crumb="Owner"
-        title="Meet the Owner"
-        lead="The person leading ROBONEURA Dynamics, and the principles behind every robot, drone and system we deliver."
+        title="Meet the Owners"
+        lead={`ROBONEURA Dynamics is led by its directors, ${owner.directors.map((d) => d.name).join(' and ')}.`}
       />
 
-      <Section tone="light" spacing="lg" aria-labelledby="owner-name">
+      <Section tone="light" spacing="lg" aria-labelledby="owner-profile-title">
         <div className="owner-profile">
           <Reveal>
-            <OwnerPortrait />
+            <DirectorsPanel />
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="eyebrow">Owner Profile</p>
-            <h2 id="owner-name" className="owner-profile__name">
-              {owner.name}
+            <p className="eyebrow">Our Directors</p>
+            <h2 id="owner-profile-title" className="owner-profile__name">
+              <TitleText>The *People* Behind ROBONEURA</TitleText>
             </h2>
-            <p className="owner-profile__role">
-              {owner.designation}, {site.legalName}
-            </p>
+            <p className="owner-profile__role">{site.legalName}</p>
             <p className="owner-profile__intro">{owner.intro}</p>
             {owner.bio.map((paragraph) => (
               <p key={paragraph} className="owner-profile__text">
@@ -65,22 +65,7 @@ export default function OwnerPage() {
             </dl>
             <div className="owner-profile__actions">
               <Button to="/contact">Get in Touch</Button>
-              {owner.linkedin && (
-                <Button
-                  href={owner.linkedin}
-                  variant="outline"
-                  icon={LinkedinLogoIcon}
-                  iconPosition="start"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </Button>
-              )}
             </div>
-            <PlaceholderNote>
-              * Placeholder: add the owner&apos;s name, designation, photo and message in src/data/owner.js.
-            </PlaceholderNote>
           </Reveal>
         </div>
       </Section>
@@ -89,8 +74,8 @@ export default function OwnerPage() {
         <Reveal className="owner-letter">
           <QuotesIcon weight="fill" className="owner-letter__icon" aria-hidden="true" />
           <SectionHeading
-            eyebrow="In the Owner's Words"
-            title="A Message from the *Owner*"
+            eyebrow="In Their Words"
+            title="A Message from the *Directors*"
             id="owner-message-title"
             align="center"
           />
@@ -100,11 +85,10 @@ export default function OwnerPage() {
             ))}
           </div>
           <p className="owner-letter__sign">
-            <span className="owner-letter__name">{owner.name}</span>
-            <span className="owner-letter__role">
-              {owner.designation}, {site.shortName}
-            </span>
+            <span className="owner-letter__name">{directorNames}</span>
+            <span className="owner-letter__role">Directors, {site.shortName}</span>
           </p>
+          <PlaceholderNote>* Draft message, to be confirmed by the directors.</PlaceholderNote>
         </Reveal>
       </Section>
 

@@ -6,15 +6,15 @@ These were supplied with the ROBONEURA design (converted to WebP):
 
 | File | Used for |
 |---|---|
-| `why-choose.webp` | Home "Why Choose ROBONEURA?" |
-| `building.webp` | Home About strip, About page |
+| `building.webp` | Home About strip, About page (the sign on the building was changed to the current ROBONEURA logo) |
 | `cta-drone.webp` | "Let's Build Something Intelligent Together" banners |
 
 ## Made for this site
 
 | File | Used for |
 |---|---|
-| `drone-3d.webp` | Home hero: still render of the 3D drone (`src/pages/home/DroneScene.jsx`), shown before the live 3D scene loads and for visitors who turn off animations |
+| `drone-3d.webp` | Home hero: still render of the 3D drone (`src/pages/home/three/DroneScene.jsx`), shown before the live 3D scene loads and for visitors who turn off animations |
+| `fleet-3d.webp` | Home "Why Choose ROBONEURA?": still render of the 3D robot, rover and drone (`src/pages/home/three/FleetScene.jsx`) |
 
 ## Stock photography
 

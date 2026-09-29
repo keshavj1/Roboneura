@@ -22,9 +22,9 @@ npm run lint       # ESLint (React + React Compiler rules)
 
 | Route | Page |
 |---|---|
-| `/` | Home: hero with the animated 3D drone, capabilities, solutions (with Learn More pop-ups), industries, why choose us, stats, meet the owner, case studies, video, process, testimonials, news, FAQ |
-| `/about` | Who we are, mission/vision/values, figures, meet the owner, team, awards, open roles (`/about#careers`) |
-| `/owner` | Owner profile, message from the owner, leadership principles, areas of focus |
+| `/` | Home: hero with the animated 3D drone, capabilities, solutions (with Learn More pop-ups), industries, why choose us (3D robot, rover and drone), stats, meet the owners (directors), case studies, video, process, testimonials, news, FAQ |
+| `/about` | Who we are, mission/vision/values, figures, meet the owners, team, awards, open roles (`/about#careers`) |
+| `/owner` | The directors (Aarna Sahai, Swapnashree Rath), message from the directors, leadership principles, areas of focus |
 | `/solutions` | Robotics, Drone Solutions, Automation Systems, Computer Vision, capabilities, sectors, process |
 | `/industries` | Eight industries with use cases (each has an anchor, e.g. `/industries#agriculture`) and case studies |
 | `/technology` | Interactive **System Architecture** (Physical → Edge → Cloud → Application), capabilities, **technology stack**, process |
@@ -39,7 +39,7 @@ Almost everything you will want to change lives in **data files**. No component 
 | What | Where |
 |---|---|
 | Phone, emails, address, office hours, map, social links, company video, feature flags | `src/config/site.js` (the address is also in the JSON-LD block of `index.html`) |
-| Owner: name, designation, photo, bio, message, principles | `src/data/owner.js` |
+| Owners / directors: names, designations, photos, message, principles | `src/data/owner.js` |
 | Solutions (cards, pop-ups, Solutions page, contact-form options) | `src/data/solutions.js` |
 | Industries | `src/data/industries.js` |
 | Capability strip / capability cards | `src/data/capabilities.js` |
@@ -72,21 +72,28 @@ Three alternative palettes are kept in the same file. To switch, add `data-theme
 reference site's colours), `data-theme="orange"` (midnight + orange) or `data-theme="teal"` (the original design) to
 the `<html>` tag in `index.html`.
 
-### Home hero: 3D drone
+### Home page 3D scenes
 
-The drone on the right of the home hero is a live 3D model built with [three.js](https://threejs.org) and
-[React Three Fiber](https://r3f.docs.pmnd.rs) (`src/pages/home/DroneScene.jsx`). It is made of simple shapes in code,
-so there is no model file. It hovers, turns slowly, leans towards the mouse and spins its propellers, and it carries the
-logo on its top.
-- **Loading:** three.js is large (about 240 kB compressed), so the scene is a separate file that loads after the page
-  appears. Until then the still render `public/images/drone-3d.webp` is shown.
+The home page has two live 3D scenes built with [three.js](https://threejs.org) and
+[React Three Fiber](https://r3f.docs.pmnd.rs), in `src/pages/home/three/`. All models are made of simple shapes in code,
+so there are no model files.
+
+| Scene | Where | What it shows |
+|---|---|---|
+| `DroneScene.jsx` | Hero (right side) | The ROBONEURA drone (logo on top) hovering over a glowing pad, leaning towards the mouse |
+| `FleetScene.jsx` | "Why Choose ROBONEURA?" | A four-legged robot that turns on the spot, a wheeled rover with a crate driving round the platform, and the drone taking off from the robot's back, circling and landing again (the robot watches it) |
+
+Shared parts: `DroneModel.jsx` (the drone), `RobotModels.jsx` (robot and rover), `kit.js` (helpers) and
+`../LazyScene.jsx` (loading and fallback).
+- **Loading:** three.js is large (about 240 kB compressed), so the scenes are separate files that load after the page
+  appears. Until then a still render is shown (`public/images/drone-3d.webp`, `fleet-3d.webp`).
 - **Fallback:** the still render stays for visitors who turn off animations or whose browser has no WebGL.
-- **Pausing:** the scene stops rendering while the hero is scrolled out of view.
+- **Pausing:** each scene stops rendering while it is scrolled out of view.
 - **Version pin:** `three` is pinned to 0.182.0, because newer versions print a deprecation warning that React Three
   Fiber 9.8 triggers. Update it once React Three Fiber supports `THREE.Timer`.
 
-If you change the model, re-render the still image to match: take a screenshot of the drone on a transparent
-background, at 1000 × 900 px.
+If you change a model, re-render its still image to match: a screenshot of the scene on a transparent background,
+1000 px wide.
 
 ### Fonts
 
@@ -125,8 +132,7 @@ file **keeping the same name** (e.g. `ind-agriculture.webp`), or change the file
 If a file is missing, the site shows a branded placeholder instead of a broken image.
 
 - Team photos: add e.g. `public/images/team-ceo.webp` and set `photo: img('team-ceo.webp')` in `src/data/content.js`.
-- Owner photo: add a portrait (about 900 × 1100 px) as e.g. `public/images/owner.webp` and set `photo: img('owner.webp')`
-  in `src/data/owner.js`.
+- Directors are shown by name only (no photos), in the "Board of Directors" panel; edit them in `src/data/owner.js`.
 - Recommended: WebP or JPG, about 1200 px wide for cards, 1600 px for wide banners, under 250 KB each.
 - Sources and licences of the current photos: see `IMAGE-CREDITS.md`.
 
@@ -137,8 +143,10 @@ bundled. To use a new one, add a line there (e.g. `export { WrenchIcon } from '@
 
 ### Placeholder notes
 
-Figures that still need verified data (stats, 98 % satisfaction, client names, awards, sample roles, …) show a small
-"* Placeholder" note. Once real data is in, set `flags.showPlaceholderNotes` to `false` in `src/config/site.js`.
+Content that still needs verified data (stats, 98 % satisfaction, client names, awards, sample roles, articles, the
+directors' message, legal text, …) can show small "* Placeholder" notes. They are **hidden** at the moment
+(`flags.showPlaceholderNotes: false` in `src/config/site.js`); set it to `true` to see which content is still an
+example. Replace that content before launch (checklist below).
 
 ## Contact & newsletter forms
 
@@ -189,7 +197,7 @@ The site address is set in `.env` (`VITE_SITE_URL`, used for canonical and share
 - [ ] Phone number (`+91 522 123 4567` is a placeholder) and social media links (`#`) in `src/config/site.js`
 - [ ] Stats, client satisfaction, client names/logos, awards and certifications
 - [ ] Testimonials 2 and 3 (placeholders), case-study results
-- [ ] Owner's name, designation, photo, message and LinkedIn link (`src/data/owner.js`)
+- [ ] The directors' approval of the draft message (`src/data/owner.js`)
 - [ ] Team names, photos and LinkedIn links
 - [ ] Open roles and careers perks
 - [ ] News posts: link each to its article (or remove the section)
@@ -197,7 +205,7 @@ The site address is set in `.env` (`VITE_SITE_URL`, used for canonical and share
 - [ ] Technology stack and architecture copy: confirm with the engineering team
 - [ ] Privacy Policy and Terms: legal review
 - [ ] Form endpoint (`VITE_FORM_ENDPOINT`) and domain (`VITE_SITE_URL`, robots.txt, sitemap.xml)
-- [ ] Then set `flags.showPlaceholderNotes = false`
+- [x] Placeholder notes hidden (`flags.showPlaceholderNotes = false`); the items above are still example content
 
 ## Project structure
 

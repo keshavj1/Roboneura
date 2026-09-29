@@ -1,61 +1,68 @@
 import { site } from '../../config/site';
-import { owner } from '../../data/owner';
+import { directorNames, owner } from '../../data/owner';
+import { img } from '../../lib/assets';
 import { cx } from '../../lib/cx';
 import { Button } from '../ui/Button';
-import { QuotesIcon, UserIcon } from '../ui/icons';
-import { Img } from '../ui/Img';
+import { QuotesIcon } from '../ui/icons';
 import { PlaceholderNote } from '../ui/PlaceholderNote';
 import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 import { SectionHeading } from '../ui/SectionHeading';
 import './OwnerSpotlight.css';
 
-/** The owner's portrait with a designation badge (Home, About and Owner pages). */
-export function OwnerPortrait({ className }) {
+/** Navy panel listing the directors by name and designation (Home, About and Owner pages). */
+export function DirectorsPanel({ className }) {
   return (
-    <div className={cx('owner-portrait', className)}>
-      <div className="owner-portrait__frame">
-        <Img
-          src={owner.photo}
-          alt={owner.photo ? `${owner.name}, ${owner.designation}, ${site.shortName}` : ''}
-          ratio="4 / 5"
-          placeholder={{ tone: 'light', icon: UserIcon, label: 'Owner photo' }}
+    <div className={cx('directors-panel', className)}>
+      <div className="directors-panel__head">
+        <img
+          className="directors-panel__mark"
+          src={img('brand/logo-mark-light.png')}
+          alt=""
+          width="320"
+          height="240"
+          loading="lazy"
+          decoding="async"
         />
+        <p className="directors-panel__company">{site.legalName}</p>
       </div>
-      <p className="owner-portrait__badge">
-        <span className="owner-portrait__badge-title">{owner.designation}</span>
-        <span className="owner-portrait__badge-sub">{site.shortName}</span>
-      </p>
+      <p className="directors-panel__title">Board of Directors</p>
+      <ul role="list" className="directors-panel__list">
+        {owner.directors.map((director) => (
+          <li key={director.name} className="directors-panel__item">
+            <span className="directors-panel__name">{director.name}</span>
+            <span className="directors-panel__role">{director.designation}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-/** "Meet the Owner" section linking to the Owner page. */
+/** "Meet the Owners" section linking to the Owner page. */
 export function OwnerSpotlight({ tone = 'white' }) {
   return (
     <Section id="owner" tone={tone} spacing="lg" aria-labelledby="owner-spotlight-title">
       <div className="owner-spot">
         <Reveal className="owner-spot__media">
-          <OwnerPortrait />
+          <DirectorsPanel />
         </Reveal>
 
         <Reveal delay={120}>
-          <SectionHeading eyebrow="Meet the Owner" title="The *Vision* Behind ROBONEURA" id="owner-spotlight-title" />
+          <SectionHeading eyebrow="Meet the Owners" title="The *Vision* Behind ROBONEURA" id="owner-spotlight-title" />
           <blockquote className="owner-spot__quote">
             <QuotesIcon weight="fill" className="owner-spot__quote-icon" aria-hidden="true" />
             <p>{owner.message.excerpt}</p>
           </blockquote>
           <p className="owner-spot__intro">{owner.intro}</p>
           <p className="owner-spot__sign">
-            <span className="owner-spot__name">{owner.name}</span>
-            <span className="owner-spot__role">
-              {owner.designation}, {site.shortName}
-            </span>
+            <span className="owner-spot__name">{directorNames}</span>
+            <span className="owner-spot__role">Directors, {site.shortName}</span>
           </p>
           <Button to="/owner" className="owner-spot__cta">
-            Read the Owner&apos;s Message
+            Read the Directors&apos; Message
           </Button>
-          <PlaceholderNote>* Placeholder: add the owner&apos;s name, photo and message in src/data/owner.js.</PlaceholderNote>
+          <PlaceholderNote>* Draft message, to be confirmed by the directors.</PlaceholderNote>
         </Reveal>
       </div>
     </Section>

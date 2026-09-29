@@ -1,8 +1,12 @@
-/* White footer in the header's colours, with the logo stripe along its top edge. */
+/*
+ * White footer in the header's colours, with the logo stripe along its top edge.
+ * Layout: phones one column · tablets (600px+) brand row on top, links | contact below ·
+ * desktop (1024px+) brand | links | contact.
+ */
 .site-footer {
   --focus-ring: var(--accent-ink);
   position: relative;
-  padding: 60px 0 26px;
+  padding: clamp(44px, 6vw, 64px) 0 24px;
   border-top: 1px solid var(--line-soft);
   background: #fff;
   color: var(--muted);
@@ -25,26 +29,27 @@
   color: var(--accent-ink);
 }
 
-/* Newsletter */
+/* ---------- Newsletter ---------- */
 .newsletter {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 52px;
-  padding: 28px clamp(20px, 3vw, 36px);
+  gap: 20px 32px;
+  margin-bottom: clamp(40px, 5vw, 56px);
+  padding: clamp(22px, 3vw, 32px) clamp(20px, 3vw, 36px);
   border: 1px solid var(--line-soft);
   border-radius: var(--r-lg);
   background: var(--bg);
 }
 
 .newsletter__copy {
-  max-width: 440px;
+  flex: 1 1 320px;
+  max-width: 460px;
 }
 
 .newsletter__title {
-  font-size: 22px;
+  font-size: clamp(19px, 2.2vw, 22px);
   font-weight: var(--fw-semibold);
   color: var(--ink);
 }
@@ -58,8 +63,8 @@
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 10px;
-  flex: 1 1 340px;
-  max-width: 480px;
+  flex: 1 1 360px;
+  max-width: 500px;
 }
 
 .newsletter__field {
@@ -67,9 +72,11 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
 }
 
 .newsletter__field input {
+  width: 100%;
   min-height: 50px;
   padding: 0 20px;
   border: 1px solid var(--line-input);
@@ -103,6 +110,7 @@
 }
 
 .btn.newsletter__submit {
+  flex: none;
   min-height: 50px;
   padding: 0 26px;
   font-size: 15px;
@@ -117,19 +125,25 @@
 }
 
 .newsletter__done svg {
+  flex: none;
   font-size: 26px;
 }
 
-/* Columns */
+/* ---------- Columns ---------- */
 .site-footer__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 36px;
 }
 
-.site-footer__brand p {
+.site-footer__about {
+  max-width: 380px;
   margin-top: 16px;
   line-height: 1.7;
+}
+
+.site-footer__follow {
+  margin-top: 24px;
 }
 
 .site-footer__title {
@@ -140,10 +154,21 @@
   color: var(--ink);
 }
 
+/* Quick links: two columns, filled top to bottom (Home … Solutions | Industries … Contact). */
 .site-footer__links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(var(--rows, 4), auto);
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 4px 40px;
+}
+
+/* Taller links: easier to tap on phones (at least 24px). */
+.site-footer__links a,
+.site-footer__bottom a {
+  display: inline-block;
+  padding-block: 5px;
+  line-height: 1.4;
 }
 
 .site-footer__contact {
@@ -158,15 +183,22 @@
   line-height: 1.6;
 }
 
+.site-footer__contact a {
+  display: inline-block;
+  padding-block: 1px;
+  overflow-wrap: anywhere;
+}
+
 .site-footer__contact svg {
   flex: none;
-  margin-top: 2px;
+  margin-top: 3px;
   font-size: 18px;
   color: var(--hue-ink, var(--icon));
 }
 
 .social {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -194,23 +226,99 @@
   color: var(--on-accent);
 }
 
+/* ---------- Bottom bar ---------- */
 .site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px 24px;
-  margin-top: 48px;
-  padding-top: 22px;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-top: clamp(36px, 5vw, 48px);
+  padding-top: 18px;
   border-top: 1px solid var(--line-soft);
   font-size: 13px;
-}
-
-.site-footer__bottom p {
-  margin-right: auto;
 }
 
 .site-footer__bottom ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 24px;
+  gap: 0 24px;
+}
+
+/* Keep the links clear of the round "back to top" button while the side margin is narrow. */
+@media (max-width: 1399.98px) {
+  .site-footer__bottom {
+    padding-right: 64px;
+  }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 599.98px) {
+  .newsletter__form {
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .newsletter__field,
+  .btn.newsletter__submit {
+    flex: 1 1 100%;
+  }
+
+  .site-footer__links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ---------- Tablets: brand row across the top ---------- */
+@media (min-width: 600px) {
+  .site-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 32px;
+  }
+
+  .site-footer__brand {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 32px;
+    align-items: center;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .site-footer__brand > .brand,
+  .site-footer__about {
+    grid-column: 1;
+  }
+
+  .site-footer__follow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+  }
+}
+
+/* ---------- Desktop: three columns ---------- */
+@media (min-width: 1024px) {
+  .site-footer__grid {
+    grid-template-columns: minmax(300px, 1.3fr) minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 48px;
+  }
+
+  .site-footer__brand {
+    grid-column: auto;
+    display: block;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .site-footer__follow {
+    margin-top: 24px;
+  }
 }
