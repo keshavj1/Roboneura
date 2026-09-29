@@ -118,7 +118,8 @@ transparent backgrounds. The logo's colours (blue `#2347bf`, yellow `#e9c311`, m
 | File | Use |
 |---|---|
 | `public/images/brand/logo-full.png` | The complete logo as supplied: footer, and the company logo for search engines |
-| `public/images/brand/logo-full-sm.png`, `logo-full-sm@2x.png` | Header and footer: the complete logo, pre-sized to 140 px / 280 px wide so the fine circuit lines stay crisp; `@2x` also in the Board of Directors panel (on a white tile) |
+| `public/images/brand/logo-header.png`, `logo-header@2x.png` | Header: the complete logo, pre-sized to 58 px / 116 px high so the fine circuit lines stay crisp |
+| `public/images/brand/logo-full-sm.png`, `logo-full-sm@2x.png` | Footer: the complete logo, pre-sized to 140 px / 280 px wide; `@2x` also in the Board of Directors panel (on a white tile) |
 | `public/images/brand/logo-wordmark.png` | "ROBONEURA" lettering (for the optional horizontal logo layout) |
 | `public/images/brand/logo-mark.png` | Circuit mark, loading screen |
 | `public/images/brand/logo-mark-light.png`, `logo-wordmark-light.png`, `logo-full-light.png` | Versions for dark backgrounds (dark blue and lettering white): share image, building sign |
@@ -127,9 +128,9 @@ transparent backgrounds. The logo's colours (blue `#2347bf`, yellow `#e9c311`, m
 | `public/apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `site.webmanifest` | Phone home-screen icons (circuit mark on white) |
 | `public/og-image.jpg` | Preview image when the site is shared on WhatsApp, LinkedIn, etc. |
 
-The header and the footer both show the complete stacked logo at the **same size**: 140 × 104 px on desktop and
-110 × 82 px on phones and tablets (`--logo-w` in `tokens.css`). The header is 120 px tall on desktop (98 px on
-phones) to fit it; once the page scrolls, the header becomes compact and the logo shrinks to 100 px wide. `BrandLogo` also has a horizontal layout (mark
+The header and the footer both show the complete stacked logo. In the header it is 58 px high with automatic width
+(78 px; `.brand--header .brand__full` in `BrandLogo.css`) in an 88 px header (74 px once the page scrolls). In the
+footer it is 140 × 104 px on desktop and 110 × 82 px on phones and tablets (`--logo-w` in `tokens.css`). `BrandLogo` also has a horizontal layout (mark
 beside the lettering) for tight spaces. To update the logo, replace these files and keep the same names and
 proportions. A vector (SVG) version of the logo would give even sharper results, if one is available.
 

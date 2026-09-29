@@ -10,12 +10,17 @@
   display: inline-block;
 }
 
-/* Same size in the header and the footer (--logo-w in tokens.css: 140px desktop, 110px phones). */
+/* Footer: --logo-w wide (tokens.css: 140px desktop, 110px phones). */
 .brand__full {
   display: block;
   width: var(--logo-w);
   height: auto;
-  transition: width 0.3s ease;
+}
+
+/* Header: 58px high, width follows the logo's proportions (78px). */
+.brand--header .brand__full {
+  height: 58px;
+  width: auto;
 }
 
 /* ---------- Horizontal: circuit mark beside the lettering (for tight spaces) ---------- */

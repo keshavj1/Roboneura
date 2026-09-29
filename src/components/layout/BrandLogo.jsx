@@ -12,11 +12,12 @@ const FILES = {
 
 /**
  * ROBONEURA logo, linking home. Files live in public/images/brand/.
- * layout: stacked (the complete logo as supplied; header and footer, same size in both: --logo-w) |
+ * layout: stacked (the complete logo as supplied; header and footer) |
  *         horizontal (circuit mark + ROBONEURA + DYNAMICS PRIVATE LIMITED, for tight spaces)
+ * placement: header (58px high, width auto) | footer (--logo-w wide)
  * variant: color (light backgrounds) | light (dark backgrounds)
  */
-export function BrandLogo({ layout = 'stacked', variant = 'color', className }) {
+export function BrandLogo({ layout = 'stacked', placement = 'footer', variant = 'color', className }) {
   const files = FILES[variant];
   const label = 'ROBONEURA Dynamics Private Limited, home';
 
@@ -32,18 +33,22 @@ export function BrandLogo({ layout = 'stacked', variant = 'color', className }) 
     );
   }
 
-  // Copies pre-sized to 140 / 280 px wide, so the fine circuit lines stay crisp.
-  const sized = variant === 'color';
-  const src = sized ? 'brand/logo-full-sm.png' : files.full;
+  // Copies pre-sized for each place (1x and 2x), so the fine circuit lines stay crisp:
+  // header 58px high (78 × 58), footer 140 × 104.
+  const sizes = {
+    header: { file: 'brand/logo-header', width: 78, height: 58 },
+    footer: { file: 'brand/logo-full-sm', width: 140, height: 104 },
+  };
+  const sized = variant === 'color' ? sizes[placement] : null;
   return (
-    <Link to="/" className={cx('brand', 'brand--stacked', className)} aria-label={label}>
+    <Link to="/" className={cx('brand', 'brand--stacked', `brand--${placement}`, className)} aria-label={label}>
       <img
         className="brand__full"
-        src={img(src)}
-        srcSet={sized ? `${img(src)} 1x, ${img('brand/logo-full-sm@2x.png')} 2x` : undefined}
+        src={img(sized ? `${sized.file}.png` : files.full)}
+        srcSet={sized ? `${img(`${sized.file}.png`)} 1x, ${img(`${sized.file}@2x.png`)} 2x` : undefined}
         alt=""
-        width={sized ? 140 : 900}
-        height={sized ? 104 : 670}
+        width={sized ? sized.width : 900}
+        height={sized ? sized.height : 670}
         decoding="async"
       />
     </Link>

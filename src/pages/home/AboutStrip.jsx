@@ -1,17 +1,25 @@
 import { StatsGrid } from '../../components/shared/StatsGrid';
 import { Button } from '../../components/ui/Button';
-import { LogoCard } from '../../components/ui/LogoCard';
+import { Img } from '../../components/ui/Img';
 import { PlaceholderNote } from '../../components/ui/PlaceholderNote';
 import { Reveal } from '../../components/ui/Reveal';
 import { Section } from '../../components/ui/Section';
 import { SectionHeading } from '../../components/ui/SectionHeading';
+import { img } from '../../lib/assets';
 
 export function AboutStrip() {
   return (
     <Section id="about" tone="navy">
       <div className="about-strip">
         <Reveal className="about-strip__media">
-          <LogoCard />
+          <Img
+            src={img('engineering-lab.webp')}
+            srcSet={`${img('engineering-lab-840.webp')} 840w, ${img('engineering-lab.webp')} 1680w`}
+            sizes="(min-width: 1000px) 400px, 100vw"
+            alt="Engineers working with robots in a bright lab: a four-legged robot and a delivery robot by the open door, a humanoid robot at the desk, and a green city with wind turbines outside"
+            ratio="1680 / 944"
+            position="62% center"
+          />
         </Reveal>
         <Reveal delay={100}>
           <SectionHeading

@@ -79,7 +79,7 @@ export function Header() {
     <header className={cx('site-header', infoBar && 'site-header--info', scrolled && 'is-scrolled', open && 'is-open')}>
       <div className="container site-header__inner">
         <div className="site-header__brand">
-          <BrandLogo />
+          <BrandLogo placement="header" />
         </div>
 
         {infoBar && <InfoBar />}

@@ -162,8 +162,8 @@
   --gutter: clamp(20px, 4vw, 40px);
   --section-y: clamp(64px, 8vw, 96px);
   --section-y-lg: clamp(64px, 8vw, 104px);
-  --logo-w: 110px; /* logo width, the same in the header and the footer (140px on desktop, below) */
-  --header-h: 98px; /* fixed header: 3px logo stripe + 94px bar + 1px border (120px on desktop, below) */
+  --logo-w: 110px; /* footer logo width (140px on desktop, below); the header logo is 58px high */
+  --header-h: 88px; /* fixed header: 3px logo stripe + 84px bar + 1px border */
   --header-offset: 88px; /* anchor jumps land below the compact (scrolled) header */
 
   /* Shape */
@@ -186,11 +186,10 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-/* Desktop: 140 × 104 px logo, 116px header bar. */
+/* Desktop: 140 × 104 px footer logo. */
 @media (min-width: 1000px) {
   :root {
     --logo-w: 140px;
-    --header-h: 120px;
   }
 }
 

@@ -452,8 +452,9 @@
   align-items: center;
 }
 
-.about-strip__media .logo-card {
+.about-strip__media .media {
   border-radius: var(--r-md);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.35);
 }
 
 .about-strip .sh__lead {
