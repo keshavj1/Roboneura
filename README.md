@@ -29,6 +29,8 @@ npm run lint       # ESLint (React + React Compiler rules)
 | `/industries` | Eight industries with use cases (each has an anchor, e.g. `/industries#agriculture`) and case studies |
 | `/technology` | Interactive **System Architecture** (Physical → Edge → Cloud → Application), capabilities, **technology stack**, process |
 | `/careers` | Why join, open roles with team filter, hiring process |
+| `/blog` | All blog posts: the newest one large, the rest in a grid, with a topic filter (Drones, Robotics, Vision, Automation) |
+| `/blog/<slug>` | One article: title, date, reading time, text, and three more posts to read |
 | `/contact` | Contact cards, validated enquiry form, map, office hours |
 | `/privacy-policy`, `/terms` | Legal pages (template text) |
 
@@ -45,7 +47,8 @@ Almost everything you will want to change lives in **data files**. No component 
 | Capability strip / capability cards | `src/data/capabilities.js` |
 | Why-choose reasons, stats, mission/vision/values, awards, client names | `src/data/company.js` |
 | Case studies | `src/data/projects.js` |
-| Testimonials, news posts, FAQ, team | `src/data/content.js` |
+| Testimonials, FAQ, team | `src/data/content.js` |
+| Blog posts (Home "Latest from the Lab", `/blog`, articles) | `src/data/blog.js`: copy an entry to the top to add a post; reading time is calculated. Add new articles to `public/sitemap.xml` too |
 | Open roles, departments, careers perks | `src/data/jobs.js` |
 | Process and hiring steps | `src/data/process.js` |
 | Architecture layers and tech stack | `src/data/architecture.js`, `src/data/techStack.js` |
@@ -117,9 +120,9 @@ transparent backgrounds. The logo's colours (blue `#2347bf`, yellow `#e9c311`, m
 
 | File | Use |
 |---|---|
-| `public/images/brand/logo-full.png` | The complete logo as supplied: footer, and the company logo for search engines |
-| `public/images/brand/logo-header.png`, `logo-header@2x.png` | Header: the complete logo, pre-sized to 58 px / 116 px high so the fine circuit lines stay crisp |
-| `public/images/brand/logo-full-sm.png`, `logo-full-sm@2x.png` | Footer: the complete logo, pre-sized to 140 px / 280 px wide; `@2x` also in the Board of Directors panel (on a white tile) |
+| `public/images/brand/logo-full.png` | The complete logo as supplied (the company logo for search engines) |
+| `public/images/brand/logo-header.png`, `logo-header@2x.png` | Header and footer: the complete logo, pre-sized to 58 px / 116 px high so the fine circuit lines stay crisp |
+| `public/images/brand/logo-full-sm@2x.png` | The complete logo, 280 px wide: Board of Directors panel (on a white tile) |
 | `public/images/brand/logo-wordmark.png` | "ROBONEURA" lettering (for the optional horizontal logo layout) |
 | `public/images/brand/logo-mark.png` | Circuit mark, loading screen |
 | `public/images/brand/logo-mark-light.png`, `logo-wordmark-light.png`, `logo-full-light.png` | Versions for dark backgrounds (dark blue and lettering white): share image, building sign |
@@ -128,10 +131,9 @@ transparent backgrounds. The logo's colours (blue `#2347bf`, yellow `#e9c311`, m
 | `public/apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `site.webmanifest` | Phone home-screen icons (circuit mark on white) |
 | `public/og-image.jpg` | Preview image when the site is shared on WhatsApp, LinkedIn, etc. |
 
-The header and the footer both show the complete stacked logo. In the header it is 58 px high with automatic width
-(78 px; `.brand--header .brand__full` in `BrandLogo.css`) in an 88 px header (74 px once the page scrolls). In the
-footer it is 140 × 104 px on desktop and 110 × 82 px on phones and tablets (`--logo-w` in `tokens.css`). `BrandLogo` also has a horizontal layout (mark
-beside the lettering) for tight spaces. To update the logo, replace these files and keep the same names and
+The header and the footer both show the complete stacked logo at the same size: 58 px high with automatic width
+(78 px; `.brand__full` in `BrandLogo.css`). The header is 88 px tall (74 px once the page scrolls). `BrandLogo` also
+has a horizontal layout (mark beside the lettering) for tight spaces. To update the logo, replace these files and keep the same names and
 proportions. A vector (SVG) version of the logo would give even sharper results, if one is available.
 
 ### Images
@@ -209,7 +211,7 @@ The site address is set in `.env` (`VITE_SITE_URL`, used for canonical and share
 - [ ] The directors' approval of the draft message (`src/data/owner.js`)
 - [ ] Team names, photos and LinkedIn links
 - [ ] Open roles and careers perks
-- [ ] News posts: link each to its article (or remove the section)
+- [ ] Blog posts: review the six launch articles in `src/data/blog.js` (general engineering articles) and add your own
 - [ ] Company video URL
 - [ ] Technology stack and architecture copy: confirm with the engineering team
 - [ ] Privacy Policy and Terms: legal review

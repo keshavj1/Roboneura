@@ -10,15 +10,9 @@
   display: inline-block;
 }
 
-/* Footer: --logo-w wide (tokens.css: 140px desktop, 110px phones). */
+/* The same size in the header and the footer: 58px high, width follows the logo (78px). */
 .brand__full {
   display: block;
-  width: var(--logo-w);
-  height: auto;
-}
-
-/* Header: 58px high, width follows the logo's proportions (78px). */
-.brand--header .brand__full {
   height: 58px;
   width: auto;
 }

@@ -1,5 +1,3 @@
-import { img } from '../lib/assets';
-
 /* Client testimonials. Only the first is from the design; the others are PLACEHOLDERS. */
 export const testimonials = [
   {
@@ -20,35 +18,6 @@ export const testimonials = [
     name: 'Client Name',
     role: 'Role, Company',
     initials: 'CN',
-  },
-];
-
-/* "Latest from the Lab". Sample articles: set `href` once each post is published. */
-export const posts = [
-  {
-    category: 'Drones',
-    date: 'Sep 2026',
-    readTime: '5 min read',
-    title: 'How drone inspection is changing infrastructure maintenance',
-    image: img('ind-defense.webp'),
-    href: '#',
-  },
-  {
-    category: 'Robotics',
-    date: 'Aug 2026',
-    readTime: '4 min read',
-    title: 'Choosing between mobile robots and fixed automation',
-    image: img('sol-robotics.webp'),
-    imagePosition: 'center 22%',
-    href: '#',
-  },
-  {
-    category: 'Vision',
-    date: 'Jul 2026',
-    readTime: '6 min read',
-    title: 'Computer vision on the edge: lessons from the factory floor',
-    image: img('ind-research.webp'),
-    href: '#',
   },
 ];
 

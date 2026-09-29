@@ -4,6 +4,7 @@
  * To add an icon: find its name on phosphoricons.com and add a line below.
  */
 export { ArrowDownIcon } from '@phosphor-icons/react/dist/csr/ArrowDown';
+export { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft';
 export { ArrowRightIcon } from '@phosphor-icons/react/dist/csr/ArrowRight';
 export { ArrowUpIcon } from '@phosphor-icons/react/dist/csr/ArrowUp';
 export { ArrowsClockwiseIcon } from '@phosphor-icons/react/dist/csr/ArrowsClockwise';
@@ -11,6 +12,7 @@ export { AsteriskIcon } from '@phosphor-icons/react/dist/csr/Asterisk';
 export { BridgeIcon } from '@phosphor-icons/react/dist/csr/Bridge';
 export { BriefcaseIcon } from '@phosphor-icons/react/dist/csr/Briefcase';
 export { BuildingsIcon } from '@phosphor-icons/react/dist/csr/Buildings';
+export { CalendarBlankIcon } from '@phosphor-icons/react/dist/csr/CalendarBlank';
 export { CameraIcon } from '@phosphor-icons/react/dist/csr/Camera';
 export { CaretLeftIcon } from '@phosphor-icons/react/dist/csr/CaretLeft';
 export { CaretRightIcon } from '@phosphor-icons/react/dist/csr/CaretRight';

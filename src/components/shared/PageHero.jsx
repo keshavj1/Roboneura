@@ -3,13 +3,16 @@ import { Breadcrumb } from '../ui/Breadcrumb';
 import { SmartLink } from '../ui/SmartLink';
 import './PageHero.css';
 
-/** Navy title band at the top of every inner page. */
-export function PageHero({ crumb, title, lead, overlap = false, children }) {
+/**
+ * Navy title band at the top of every inner page.
+ * trail: optional pages between Home and the current one, e.g. [{ label: 'Blog', to: '/blog' }].
+ */
+export function PageHero({ crumb, trail = [], title, lead, overlap = false, children }) {
   return (
     <section className={cx('page-hero', overlap && 'page-hero--overlap')} aria-labelledby="page-title">
       <div className="page-hero__grid" aria-hidden="true" />
       <div className="container page-hero__inner">
-        <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: crumb }]} />
+        <Breadcrumb items={[{ label: 'Home', to: '/' }, ...trail, { label: crumb }]} />
         <h1 id="page-title" className="page-hero__title">
           {title}
         </h1>

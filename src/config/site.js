@@ -63,6 +63,7 @@ export const mainNav = [
   { label: 'Solutions', to: '/solutions' },
   { label: 'Industries', to: '/industries' },
   { label: 'Technology', to: '/technology' },
+  { label: 'Blog', to: '/blog' },
   { label: 'Career', to: '/careers' },
   { label: 'Contact', to: '/contact' },
 ];

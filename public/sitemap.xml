@@ -8,6 +8,13 @@
   <url><loc>https://roboneura.com/industries</loc><priority>0.8</priority></url>
   <url><loc>https://roboneura.com/technology</loc><priority>0.8</priority></url>
   <url><loc>https://roboneura.com/careers</loc><priority>0.7</priority></url>
+  <url><loc>https://roboneura.com/blog</loc><priority>0.7</priority></url>
+  <url><loc>https://roboneura.com/blog/drone-inspection-infrastructure-maintenance</loc><priority>0.6</priority></url>
+  <url><loc>https://roboneura.com/blog/mobile-robots-vs-fixed-automation</loc><priority>0.6</priority></url>
+  <url><loc>https://roboneura.com/blog/computer-vision-on-the-edge</loc><priority>0.6</priority></url>
+  <url><loc>https://roboneura.com/blog/precision-agriculture-with-drones</loc><priority>0.6</priority></url>
+  <url><loc>https://roboneura.com/blog/planning-your-first-automation-project</loc><priority>0.6</priority></url>
+  <url><loc>https://roboneura.com/blog/robots-for-solar-plants</loc><priority>0.6</priority></url>
   <url><loc>https://roboneura.com/contact</loc><priority>0.8</priority></url>
   <url><loc>https://roboneura.com/privacy-policy</loc><priority>0.3</priority></url>
   <url><loc>https://roboneura.com/terms</loc><priority>0.3</priority></url>
