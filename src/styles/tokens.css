@@ -5,7 +5,7 @@
  * footer, pale blue-grey sections, deep navy dark sections):
  *   logo blue    buttons, links and icons on light backgrounds
  *   logo yellow  highlights and buttons on dark backgrounds
- *   all five     (blue, yellow, magenta, cyan, purple) colour-code icons and badges, and form the
+ *   all five     (blue, yellow, magenta, light blue, purple; "cyan" is the logo's light blue) colour-code icons and badges, and form the
  *                logo stripe along the header, the footer and under section titles.
  * Alternatives kept below: add data-theme="steel" (steel blue + slate, the Altech reference colours),
  * data-theme="orange" (midnight + orange) or data-theme="teal" (the original design) to the <html>
@@ -18,11 +18,11 @@
  */
 :root {
   /* Logo colours */
-  --brand-blue: #233e98;
-  --brand-yellow: #fec603;
-  --brand-magenta: #d20d81;
-  --brand-cyan: #0b9dd9;
-  --brand-purple: #6e2d8c;
+  --brand-blue: #2347bf;
+  --brand-yellow: #e9c311;
+  --brand-magenta: #ce148b;
+  --brand-cyan: #4386dd;
+  --brand-purple: #7616d4;
   --brand-stripe: linear-gradient(
     90deg,
     var(--brand-blue) 0 20%,
@@ -39,72 +39,72 @@
    * active with data-icons="color" on <html>).
    * base: fill · on: icon on the fill · soft: tint on light · ink: on light · light: on dark · rgb: for glows
    */
-  --blue: #233e98;
+  --blue: #2347bf;
   --blue-on: #ffffff;
-  --blue-soft: #e6ebf8;
-  --blue-ink: #233e98;
-  --blue-light: #8fa6ee;
-  --blue-rgb: 35 62 152;
-  --yellow: #fec603;
+  --blue-soft: #e6ecfa;
+  --blue-ink: #2347bf;
+  --blue-light: #8fa9f0;
+  --blue-rgb: 35 71 191;
+  --yellow: #e9c311;
   --yellow-on: #111a3d;
-  --yellow-soft: #fff4cc;
-  --yellow-ink: #8a6500;
-  --yellow-light: #fec603;
-  --yellow-rgb: 254 198 3;
-  --magenta: #d20d81;
+  --yellow-soft: #fbf1c4;
+  --yellow-ink: #7d6400;
+  --yellow-light: #e9c311;
+  --yellow-rgb: 233 195 17;
+  --magenta: #ce148b;
   --magenta-on: #ffffff;
-  --magenta-soft: #fbe4f1;
-  --magenta-ink: #b30b6e;
-  --magenta-light: #f06bb5;
-  --magenta-rgb: 210 13 129;
-  --cyan: #0b9dd9;
+  --magenta-soft: #fae3f1;
+  --magenta-ink: #ad0f74;
+  --magenta-light: #ef6bbc;
+  --magenta-rgb: 206 20 139;
+  --cyan: #4386dd;
   --cyan-on: #0b1330;
-  --cyan-soft: #def2fb;
-  --cyan-ink: #06719f;
-  --cyan-light: #5cc6f2;
-  --cyan-rgb: 11 157 217;
-  --purple: #6e2d8c;
+  --cyan-soft: #e3eefb;
+  --cyan-ink: #2a66b5;
+  --cyan-light: #7fb0ee;
+  --cyan-rgb: 67 134 221;
+  --purple: #7616d4;
   --purple-on: #ffffff;
-  --purple-soft: #efe4f6;
-  --purple-ink: #6e2d8c;
-  --purple-light: #bd8ddb;
-  --purple-rgb: 110 45 140;
+  --purple-soft: #efe3fb;
+  --purple-ink: #6a12c0;
+  --purple-light: #b284f5;
+  --purple-rgb: 118 22 212;
 
   /* Deep navy (dark sections), mixed from the logo blue. --navy-600 is the logo blue itself. */
   --navy-950: #0b1330;
   --navy-900: #111a3d;
   --navy-800: #172351;
   --navy-700: #1e2d66;
-  --navy-600: #233e98;
-  --navy-hover: #233e98; /* dark buttons turn logo blue on hover */
+  --navy-600: #2347bf;
+  --navy-hover: #2347bf; /* dark buttons turn logo blue on hover */
   --navy-rgb: 17 26 61; /* for transparent shadows/overlays: rgb(var(--navy-rgb) / 0.5) */
 
   /* Accent fill: buttons, badges, selected chips */
-  --accent-fill: #233e98;
-  --accent-fill-hover: #1a2f78;
-  --accent-fill-rgb: 35 62 152;
+  --accent-fill: #2347bf;
+  --accent-fill-hover: #1b389c;
+  --accent-fill-rgb: 35 71 191;
   --on-accent: #ffffff; /* text on accent-filled elements */
 
   /* Fill inside dark areas (hero, dark bands, CTA card): see base.css */
-  --dark-fill: #fec603;
-  --dark-fill-hover: #ffd64a;
-  --dark-fill-rgb: 254 198 3;
+  --dark-fill: #e9c311;
+  --dark-fill-hover: #f3d33c;
+  --dark-fill-rgb: 233 195 17;
   --on-dark-fill: #111a3d;
 
   /* Accent on dark backgrounds: highlighted words, icons, lines */
-  --accent: #fec603;
-  --accent-hover: #ffd64a;
-  --accent-rgb: 254 198 3;
+  --accent: #e9c311;
+  --accent-hover: #f3d33c;
+  --accent-rgb: 233 195 17;
 
   /* Accent "ink": text, links and icons on light backgrounds (meets WCAG AA) */
-  --accent-ink: #233e98;
-  --accent-ink-strong: #1a2f78;
-  --accent-ink-rgb: 35 62 152;
-  --accent-50: #eef1fa;
-  --accent-100: #e1e7f7;
+  --accent-ink: #2347bf;
+  --accent-ink-strong: #1b389c;
+  --accent-ink-rgb: 35 71 191;
+  --accent-50: #eef2fb;
+  --accent-100: #e1e8f8;
 
   /* Focus outline on light backgrounds (dark sections switch to --accent) */
-  --focus-ring: #233e98;
+  --focus-ring: #2347bf;
   --grid-rgb: 150 170 235; /* blueprint grid lines on dark backgrounds */
 
   /*
@@ -162,7 +162,8 @@
   --gutter: clamp(20px, 4vw, 40px);
   --section-y: clamp(64px, 8vw, 96px);
   --section-y-lg: clamp(64px, 8vw, 104px);
-  --header-h: 88px; /* fixed header: 3px logo stripe + 84px bar + 1px border */
+  --logo-w: 110px; /* logo width, the same in the header and the footer (140px on desktop, below) */
+  --header-h: 98px; /* fixed header: 3px logo stripe + 94px bar + 1px border (120px on desktop, below) */
   --header-offset: 88px; /* anchor jumps land below the compact (scrolled) header */
 
   /* Shape */
@@ -183,6 +184,14 @@
 
   /* Motion */
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Desktop: 140 × 104 px logo, 116px header bar. */
+@media (min-width: 1000px) {
+  :root {
+    --logo-w: 140px;
+    --header-h: 120px;
+  }
 }
 
 /* Colour-coded icons: gold award icons to match. */

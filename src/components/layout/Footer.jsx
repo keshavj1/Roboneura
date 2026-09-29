@@ -29,7 +29,7 @@ export function Footer() {
 
         <div className="site-footer__grid">
           <div className="site-footer__brand">
-            <BrandLogo size="lg" />
+            <BrandLogo />
             <p className="site-footer__about">
               {site.pillars}
               <br />

@@ -15,15 +15,10 @@ export function DirectorsPanel({ className }) {
   return (
     <div className={cx('directors-panel', className)}>
       <div className="directors-panel__head">
-        <img
-          className="directors-panel__mark"
-          src={img('brand/logo-mark-light.png')}
-          alt=""
-          width="320"
-          height="240"
-          loading="lazy"
-          decoding="async"
-        />
+        {/* The complete logo on a white tile, as in the header and footer. */}
+        <span className="directors-panel__logo">
+          <img src={img('brand/logo-full-sm@2x.png')} alt="" width="280" height="208" loading="lazy" decoding="async" />
+        </span>
         <p className="directors-panel__company">{site.legalName}</p>
       </div>
       <p className="directors-panel__title">Board of Directors</p>

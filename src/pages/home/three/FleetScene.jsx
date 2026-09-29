@@ -86,7 +86,7 @@ const createStage = () => ({
   }),
   topMaterial: new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false }),
   rim: new THREE.RingGeometry(PLATFORM_R - 0.07, PLATFORM_R - 0.02, 128),
-  rimMaterial: new THREE.MeshBasicMaterial({ color: '#fec603', transparent: true, opacity: 0.9 }),
+  rimMaterial: new THREE.MeshBasicMaterial({ color: '#e9c311', transparent: true, opacity: 0.9 }),
   track: new THREE.RingGeometry(ROVER_R - 0.012, ROVER_R + 0.012, 128),
   trackMaterial: new THREE.MeshBasicMaterial({ color: '#9db4ec', transparent: true, opacity: 0.35 }),
   glow: new THREE.CircleGeometry(PLATFORM_R + 0.9, 64),

@@ -32,7 +32,7 @@ const createMaterials = () => ({
   dark: new THREE.MeshStandardMaterial({ color: '#1a1f2c', roughness: 0.5, metalness: 0.5 }),
   joint: new THREE.MeshStandardMaterial({ color: '#2b3140', roughness: 0.3, metalness: 0.8 }),
   rubber: new THREE.MeshStandardMaterial({ color: '#0e1117', roughness: 0.9 }),
-  accent: new THREE.MeshStandardMaterial({ color: '#fec603', emissive: '#fec603', emissiveIntensity: 0.45, roughness: 0.4 }),
+  accent: new THREE.MeshStandardMaterial({ color: '#e9c311', emissive: '#e9c311', emissiveIntensity: 0.45, roughness: 0.4 }),
   lens: new THREE.MeshPhysicalMaterial({
     color: '#0b1330',
     roughness: 0.05,
@@ -41,9 +41,9 @@ const createMaterials = () => ({
     emissiveIntensity: 0.9,
   }),
   pad: new THREE.MeshStandardMaterial({ color: '#151a28', roughness: 0.6, metalness: 0.3 }),
-  padRing: new THREE.MeshBasicMaterial({ color: '#fec603' }),
+  padRing: new THREE.MeshBasicMaterial({ color: '#e9c311' }),
   lidar: new THREE.MeshStandardMaterial({ color: '#5cc6f2', emissive: '#5cc6f2', emissiveIntensity: 1.4 }),
-  crate: new THREE.MeshStandardMaterial({ color: '#fec603', roughness: 0.55 }),
+  crate: new THREE.MeshStandardMaterial({ color: '#e9c311', roughness: 0.55 }),
 });
 
 const createGeometries = () => ({

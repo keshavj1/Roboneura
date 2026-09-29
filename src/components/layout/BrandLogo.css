@@ -5,10 +5,25 @@
   text-decoration: none;
 }
 
+/* ---------- Stacked: the complete logo as supplied (1.34 : 1) ---------- */
+.brand--stacked {
+  display: inline-block;
+}
+
+/* Same size in the header and the footer (--logo-w in tokens.css: 140px desktop, 110px phones). */
+.brand__full {
+  display: block;
+  width: var(--logo-w);
+  height: auto;
+  transition: width 0.3s ease;
+}
+
+/* ---------- Horizontal: circuit mark beside the lettering (for tight spaces) ---------- */
 .brand__mark {
   display: block;
+  flex: none;
   width: auto;
-  height: 44px;
+  height: 48px;
 }
 
 .brand__text {
@@ -20,11 +35,11 @@
 .brand__wordmark {
   display: block;
   width: auto;
-  height: 15px;
+  height: 16px;
 }
 
 .brand__sub {
-  font-size: 8.5px;
+  font-size: 8.6px;
   font-weight: var(--fw-semibold);
   line-height: 1;
   letter-spacing: 0.19em;
@@ -33,56 +48,5 @@
 }
 
 .brand--light .brand__sub {
-  font-weight: var(--fw-semibold);
   color: rgba(255, 255, 255, 0.72);
-}
-
-/* Footer */
-.brand--lg {
-  gap: 14px;
-}
-
-.brand--lg .brand__mark {
-  height: 60px;
-}
-
-.brand--lg .brand__wordmark {
-  height: 19px;
-}
-
-.brand--lg .brand__sub {
-  font-size: 10.5px;
-}
-
-@media (max-width: 480px) {
-  .brand--md .brand__mark {
-    height: 38px;
-  }
-
-  .brand--md .brand__wordmark {
-    height: 13px;
-  }
-
-  .brand--md .brand__sub {
-    font-size: 7.5px;
-  }
-}
-
-/* Narrow phones: the footer logo (about 317px wide) would not fit beside the page margins. */
-@media (max-width: 420px) {
-  .brand--lg {
-    gap: 12px;
-  }
-
-  .brand--lg .brand__mark {
-    height: 48px;
-  }
-
-  .brand--lg .brand__wordmark {
-    height: 16px;
-  }
-
-  .brand--lg .brand__sub {
-    font-size: 8.8px;
-  }
 }

@@ -452,7 +452,7 @@
   align-items: center;
 }
 
-.about-strip__media .media {
+.about-strip__media .logo-card {
   border-radius: var(--r-md);
 }
 

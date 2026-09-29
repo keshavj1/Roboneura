@@ -35,7 +35,13 @@ export default function AboutPage() {
         <div className="who">
           <Reveal className="who__media">
             <div className="who__frame">
-              <Img src={img('building.webp')} alt="The ROBONEURA Dynamics office building" ratio="247 / 170" />
+              <Img
+                src={img('real-world-robots.webp')}
+                srcSet={`${img('real-world-robots-840.webp')} 840w, ${img('real-world-robots.webp')} 1680w`}
+                sizes="(min-width: 1000px) 600px, 100vw"
+                alt="Robots at work in the real world: a humanoid robot, a delivery robot and a four-legged robot on a city street, a farm robot among crops, and an inspection robot under a bridge"
+                ratio="1680 / 944"
+              />
             </div>
             <div className="who__badge">
               <CountUp end={5} suffix="+" className="who__badge-value" />

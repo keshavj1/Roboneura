@@ -6,8 +6,14 @@ These were supplied with the ROBONEURA design (converted to WebP):
 
 | File | Used for |
 |---|---|
-| `building.webp` | Home About strip, About page (the sign on the building was changed to the current ROBONEURA logo) |
+| `building.webp` | Not shown at the moment: the Home "About Us" section shows the logo and "Who We Are" shows `real-world-robots.webp`. The sign on the building was changed to the current ROBONEURA logo. To use it again, put `<Img src={img('building.webp')} …>` back in place of `<LogoCard />` in `AboutStrip.jsx` / `AboutPage.jsx` |
 | `cta-drone.webp` | "Let's Build Something Intelligent Together" banners |
+
+## Supplied by ROBONEURA
+
+| File | Used for |
+|---|---|
+| `real-world-robots.webp`, `real-world-robots-840.webp` | About page, "Who We Are": robots at work (city street, farm, bridge inspection) |
 
 ## Made for this site
 

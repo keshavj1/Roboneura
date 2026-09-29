@@ -46,12 +46,26 @@
   align-items: center;
   justify-content: flex-end;
   gap: 24px;
-  min-height: 84px;
+  min-height: 94px;
   transition: min-height 0.3s ease;
 }
 
 .site-header.is-scrolled .site-header__bar {
-  min-height: 64px;
+  min-height: 80px;
+}
+
+/*
+ * The logo is the same size as in the footer (--logo-w). Once the page scrolls, the header
+ * becomes compact and the logo a little smaller, so the page keeps more room.
+ */
+.site-header.is-scrolled .brand__full {
+  width: 100px;
+}
+
+@media (min-width: 1000px) {
+  .site-header__bar {
+    min-height: 116px;
+  }
 }
 
 /* Desktop navigation */
@@ -353,7 +367,7 @@
   }
 
   .site-nav ul {
-    gap: 18px;
+    gap: 16px;
   }
 
   .site-nav__link {

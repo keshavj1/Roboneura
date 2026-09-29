@@ -1,18 +1,17 @@
 import { StatsGrid } from '../../components/shared/StatsGrid';
 import { Button } from '../../components/ui/Button';
-import { Img } from '../../components/ui/Img';
+import { LogoCard } from '../../components/ui/LogoCard';
 import { PlaceholderNote } from '../../components/ui/PlaceholderNote';
 import { Reveal } from '../../components/ui/Reveal';
 import { Section } from '../../components/ui/Section';
 import { SectionHeading } from '../../components/ui/SectionHeading';
-import { img } from '../../lib/assets';
 
 export function AboutStrip() {
   return (
     <Section id="about" tone="navy">
       <div className="about-strip">
         <Reveal className="about-strip__media">
-          <Img src={img('building.webp')} alt="The ROBONEURA Dynamics office building" ratio="247 / 147" />
+          <LogoCard />
         </Reveal>
         <Reveal delay={100}>
           <SectionHeading

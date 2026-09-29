@@ -38,13 +38,13 @@ const createMaterials = () => ({
     depthWrite: false,
     side: THREE.DoubleSide,
   }),
-  accent: new THREE.MeshStandardMaterial({ color: '#fec603', emissive: '#fec603', emissiveIntensity: 0.4, roughness: 0.4 }),
+  accent: new THREE.MeshStandardMaterial({ color: '#e9c311', emissive: '#e9c311', emissiveIntensity: 0.4, roughness: 0.4 }),
   lens: new THREE.MeshPhysicalMaterial({
     color: '#0b1330',
     roughness: 0.05,
     metalness: 0.3,
     clearcoat: 1,
-    emissive: '#233e98',
+    emissive: '#2347bf',
     emissiveIntensity: 0.5,
   }),
   logo: new THREE.MeshStandardMaterial({ transparent: true, roughness: 0.4 }),
@@ -67,11 +67,12 @@ const createGeometries = () => ({
   lensBarrel: new THREE.CylinderGeometry(0.045, 0.045, 0.06, 24),
   led: new THREE.SphereGeometry(0.03, 12, 12),
   stripe: new THREE.BoxGeometry(0.02, 0.04, 0.78),
-  decal: new THREE.PlaneGeometry(0.36, 0.27),
+  decal: new THREE.PlaneGeometry(0.42, 0.2265), // logo rings, 445 × 240
 });
 
 function createTextures() {
-  const logo = new THREE.TextureLoader().load(img('brand/logo-mark.png'));
+  // The rings of the logo: the full circuit mark's thin lines would disappear at this size.
+  const logo = new THREE.TextureLoader().load(img('brand/logo-icon.png'));
   logo.colorSpace = THREE.SRGBColorSpace;
   logo.anisotropy = 4;
   return { logo };

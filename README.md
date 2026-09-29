@@ -111,19 +111,27 @@ wider (it folds away when the page scrolls). It is switched off; set `flags.show
 
 ### Logo & icons
 
-Generated from the supplied logo (white-background PNG) with transparent backgrounds:
+Generated from the supplied logo (circuit semicircle + "ROBONEURA" + "DYNAMICS", 2000 × 2000 PNG on white) with
+transparent backgrounds. The logo's colours (blue `#2347bf`, yellow `#e9c311`, magenta `#ce148b`, light blue
+`#4386dd`, purple `#7616d4`) are also the site's brand colours in `tokens.css`.
 
 | File | Use |
 |---|---|
-| `public/images/brand/logo-mark.png`, `logo-wordmark.png` | Full-colour logo: header, footer and loading screen |
-| `public/images/brand/logo-mark-light.png`, `logo-wordmark-light.png` | Versions for dark backgrounds (the blue parts are white), used in the share image |
-| `public/images/brand/logo-full.png` | Complete stacked logo (used as the company logo for search engines) |
-| `public/favicon.ico` (16/32/48 px), `favicon-32x32.png` | Browser tab icon |
-| `public/apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `site.webmanifest` | Phone home-screen icons |
+| `public/images/brand/logo-full.png` | The complete logo as supplied: footer, and the company logo for search engines |
+| `public/images/brand/logo-full-sm.png`, `logo-full-sm@2x.png` | Header and footer: the complete logo, pre-sized to 140 px / 280 px wide so the fine circuit lines stay crisp; `@2x` also in the Board of Directors panel (on a white tile) |
+| `public/images/brand/logo-wordmark.png` | "ROBONEURA" lettering (for the optional horizontal logo layout) |
+| `public/images/brand/logo-mark.png` | Circuit mark, loading screen |
+| `public/images/brand/logo-mark-light.png`, `logo-wordmark-light.png`, `logo-full-light.png` | Versions for dark backgrounds (dark blue and lettering white): share image, building sign |
+| `public/images/brand/logo-icon.png` | The rings of the mark: logo on the 3D drone |
+| `public/favicon.ico` (16/32/48 px), `favicon-32x32.png` | Browser tab icon (the rings) |
+| `public/apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `site.webmanifest` | Phone home-screen icons (circuit mark on white) |
 | `public/og-image.jpg` | Preview image when the site is shared on WhatsApp, LinkedIn, etc. |
 
-To update the logo, replace these files and keep the same names and proportions. A vector (SVG) version of the logo
-would give even sharper results, if one is available.
+The header and the footer both show the complete stacked logo at the **same size**: 140 × 104 px on desktop and
+110 × 82 px on phones and tablets (`--logo-w` in `tokens.css`). The header is 120 px tall on desktop (98 px on
+phones) to fit it; once the page scrolls, the header becomes compact and the logo shrinks to 100 px wide. `BrandLogo` also has a horizontal layout (mark
+beside the lettering) for tight spaces. To update the logo, replace these files and keep the same names and
+proportions. A vector (SVG) version of the logo would give even sharper results, if one is available.
 
 ### Images
 

@@ -21,7 +21,7 @@ const createPad = () => ({
   padGeometry: new THREE.CircleGeometry(1.15, 64),
   ringGeometry: new THREE.RingGeometry(0.975, 1, 128),
   padMaterial: new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false }),
-  ringA: new THREE.MeshBasicMaterial({ color: '#ffd23f', transparent: true, opacity: 0.6, depthWrite: false }),
+  ringA: new THREE.MeshBasicMaterial({ color: '#f3d33c', transparent: true, opacity: 0.6, depthWrite: false }),
   ringB: new THREE.MeshBasicMaterial({ color: '#9db4ec', transparent: true, opacity: 0.5, depthWrite: false }),
 });
 
@@ -100,7 +100,7 @@ export default function DroneScene({ active, onReady }) {
       <hemisphereLight args={['#dbe6ff', '#0b1330', 0.9]} />
       <directionalLight position={[4, 6, 5]} intensity={2.4} />
       <directionalLight position={[-5, 3, -4]} intensity={1.8} color="#8fa6ee" />
-      <pointLight position={[0, -0.8, 0.8]} intensity={1.5} distance={3.5} color="#fec603" />
+      <pointLight position={[0, -0.8, 0.8]} intensity={1.5} distance={3.5} color="#e9c311" />
       <HoveringDrone pointer={pointer} onReady={onReady} />
       <HoverPad />
     </Canvas>
