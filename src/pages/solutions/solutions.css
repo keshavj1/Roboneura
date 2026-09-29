@@ -1,0 +1,102 @@
+.solution-rows {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(64px, 8vw, 112px);
+}
+
+.solution-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  align-items: center;
+}
+
+.solution-row--reverse .solution-row__media {
+  order: 2;
+}
+
+.solution-row__frame {
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  box-shadow: 0 24px 60px rgb(var(--navy-rgb) / 0.14);
+}
+
+/* Each row wears its solution's logo colour (--hue-*, from its .hue-* class). */
+.solution-row .eyebrow {
+  color: var(--hue-ink, var(--accent-ink-strong));
+}
+
+.solution-row .check-list svg {
+  color: var(--hue-ink, var(--icon));
+}
+
+.solution-row__title {
+  margin-top: 16px;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.solution-row__text {
+  margin-top: 16px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.solution-row__features {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  margin-top: 24px;
+}
+
+.solution-row__cta {
+  margin-top: 30px;
+}
+
+@media (max-width: 899.98px) {
+  .solution-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .solution-row--reverse .solution-row__media {
+    order: 0;
+  }
+}
+
+/* Industry pills */
+.industry-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.industry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  box-shadow: 0 4px 14px rgb(var(--navy-rgb) / 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.industry-pill svg {
+  font-size: 20px;
+  color: var(--hue-ink, var(--icon));
+}
+
+.industry-pill:hover {
+  color: var(--accent-ink-strong);
+  box-shadow: 0 10px 24px rgb(var(--navy-rgb) / 0.1);
+  transform: translateY(-2px);
+}

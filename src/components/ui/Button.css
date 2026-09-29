@@ -1,0 +1,119 @@
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: inherit;
+  --btn-border: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--r-pill);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover, var(--btn-bg));
+  color: var(--btn-fg-hover, var(--btn-fg));
+  border-color: var(--btn-border-hover, var(--btn-border));
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn__icon {
+  flex: none;
+  font-size: 1.15em;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover .btn__icon--nudge {
+  transform: translateX(3px);
+}
+
+/* Sizes */
+.btn--sm {
+  min-height: 42px;
+  padding: 0 20px;
+}
+
+.btn--lg {
+  min-height: 52px;
+  padding: 0 28px;
+  font-size: 15px;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* Variants */
+.btn--primary {
+  --btn-bg: var(--accent-fill);
+  --btn-fg: var(--on-accent);
+  --btn-bg-hover: var(--accent-fill-hover);
+  --btn-fg-hover: var(--on-accent);
+}
+
+.btn--glow {
+  box-shadow: 0 10px 30px rgb(var(--accent-fill-rgb) / 0.3);
+}
+
+.btn--dark {
+  --btn-bg: var(--navy-950);
+  --btn-fg: #fff;
+  --btn-bg-hover: var(--navy-hover);
+  --btn-fg-hover: #fff;
+}
+
+.btn--outline {
+  --btn-fg: var(--ink);
+  --btn-border: var(--line);
+  --btn-bg: #fff;
+  --btn-border-hover: var(--accent-ink);
+  --btn-fg-hover: var(--accent-ink-strong);
+}
+
+.btn--outline-light {
+  --btn-fg: #fff;
+  --btn-border: rgba(255, 255, 255, 0.3);
+  --btn-border-hover: var(--accent);
+  --btn-fg-hover: var(--accent);
+}
+
+.btn--link {
+  --btn-fg: var(--link, var(--accent-ink-strong));
+  --btn-fg-hover: var(--link-hover, var(--accent-ink));
+  min-height: 0;
+  padding: 0;
+  gap: 6px;
+  border: 0;
+  border-radius: 4px;
+}
+
+.btn--link:hover .btn__icon--nudge {
+  transform: translateX(4px);
+}

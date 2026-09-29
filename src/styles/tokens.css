@@ -1,0 +1,323 @@
+/*
+ * ROBONEURA design tokens: every colour and font on the site comes from this file.
+ *
+ * Default palette: the ROBONEURA logo colours in a clean corporate system (white header and
+ * footer, pale blue-grey sections, deep navy dark sections):
+ *   logo blue    buttons, links and icons on light backgrounds
+ *   logo yellow  highlights and buttons on dark backgrounds
+ *   all five     (blue, yellow, magenta, cyan, purple) colour-code icons and badges, and form the
+ *                logo stripe along the header, the footer and under section titles.
+ * Alternatives kept below: add data-theme="steel" (steel blue + slate, the Altech reference colours),
+ * data-theme="orange" (midnight + orange) or data-theme="teal" (the original design) to the <html>
+ * tag in index.html.
+ *
+ * The accent comes in three roles:
+ *   --accent-fill  solid fills (buttons, badges, selected chips) with --on-accent text
+ *   --accent       highlights on dark backgrounds (text, icons, lines)
+ *   --accent-ink   text, links and icons on light backgrounds
+ */
+:root {
+  /* Logo colours */
+  --brand-blue: #233e98;
+  --brand-yellow: #fec603;
+  --brand-magenta: #d20d81;
+  --brand-cyan: #0b9dd9;
+  --brand-purple: #6e2d8c;
+  --brand-stripe: linear-gradient(
+    90deg,
+    var(--brand-blue) 0 20%,
+    var(--brand-yellow) 20% 40%,
+    var(--brand-magenta) 40% 60%,
+    var(--brand-cyan) 60% 80%,
+    var(--brand-purple) 80% 100%
+  );
+  /* Stripe along the top of the header and footer, and under section titles */
+  --brand-rule: var(--brand-stripe);
+
+  /*
+   * The logo colours as a set, for colour-coded icons and badges (the .hue-* classes in base.css,
+   * active with data-icons="color" on <html>).
+   * base: fill · on: icon on the fill · soft: tint on light · ink: on light · light: on dark · rgb: for glows
+   */
+  --blue: #233e98;
+  --blue-on: #ffffff;
+  --blue-soft: #e6ebf8;
+  --blue-ink: #233e98;
+  --blue-light: #8fa6ee;
+  --blue-rgb: 35 62 152;
+  --yellow: #fec603;
+  --yellow-on: #111a3d;
+  --yellow-soft: #fff4cc;
+  --yellow-ink: #8a6500;
+  --yellow-light: #fec603;
+  --yellow-rgb: 254 198 3;
+  --magenta: #d20d81;
+  --magenta-on: #ffffff;
+  --magenta-soft: #fbe4f1;
+  --magenta-ink: #b30b6e;
+  --magenta-light: #f06bb5;
+  --magenta-rgb: 210 13 129;
+  --cyan: #0b9dd9;
+  --cyan-on: #0b1330;
+  --cyan-soft: #def2fb;
+  --cyan-ink: #06719f;
+  --cyan-light: #5cc6f2;
+  --cyan-rgb: 11 157 217;
+  --purple: #6e2d8c;
+  --purple-on: #ffffff;
+  --purple-soft: #efe4f6;
+  --purple-ink: #6e2d8c;
+  --purple-light: #bd8ddb;
+  --purple-rgb: 110 45 140;
+
+  /* Deep navy (dark sections), mixed from the logo blue. --navy-600 is the logo blue itself. */
+  --navy-950: #0b1330;
+  --navy-900: #111a3d;
+  --navy-800: #172351;
+  --navy-700: #1e2d66;
+  --navy-600: #233e98;
+  --navy-hover: #233e98; /* dark buttons turn logo blue on hover */
+  --navy-rgb: 17 26 61; /* for transparent shadows/overlays: rgb(var(--navy-rgb) / 0.5) */
+
+  /* Accent fill: buttons, badges, selected chips */
+  --accent-fill: #233e98;
+  --accent-fill-hover: #1a2f78;
+  --accent-fill-rgb: 35 62 152;
+  --on-accent: #ffffff; /* text on accent-filled elements */
+
+  /* Fill inside dark areas (hero, dark bands, CTA card): see base.css */
+  --dark-fill: #fec603;
+  --dark-fill-hover: #ffd64a;
+  --dark-fill-rgb: 254 198 3;
+  --on-dark-fill: #111a3d;
+
+  /* Accent on dark backgrounds: highlighted words, icons, lines */
+  --accent: #fec603;
+  --accent-hover: #ffd64a;
+  --accent-rgb: 254 198 3;
+
+  /* Accent "ink": text, links and icons on light backgrounds (meets WCAG AA) */
+  --accent-ink: #233e98;
+  --accent-ink-strong: #1a2f78;
+  --accent-ink-rgb: 35 62 152;
+  --accent-50: #eef1fa;
+  --accent-100: #e1e7f7;
+
+  /* Focus outline on light backgrounds (dark sections switch to --accent) */
+  --focus-ring: #233e98;
+  --grid-rgb: 150 170 235; /* blueprint grid lines on dark backgrounds */
+
+  /*
+   * Icons: one colour, black on light backgrounds and white on dark ones.
+   * (Add data-icons="color" to <html> to colour-code them with the logo colours instead.)
+   */
+  --icon: var(--ink);
+  --icon-bg: #eef0f5; /* icon boxes on light backgrounds */
+  --icon-on-dark: #ffffff;
+
+  /* Awards & certifications icons */
+  --award-bg: var(--icon-bg);
+  --award-fg: var(--icon);
+
+  /* Neutrals */
+  --ink: #141c3b;
+  --text: #474e66;
+  --muted: #646b80;
+  --muted-2: #9aa0b0;
+  --line: #d7dce8;
+  --line-input: #dce2ec;
+  --line-soft: #e7ebf3;
+  --line-dash: #c9d1df;
+  --bg: #f5f7fd;
+  --surface: #ffffff;
+  --input-bg: #f8f9fd;
+  --avatar: #dde4f5;
+  --danger: #d14343;
+
+  /* Gradients (built from the colours above, so themes only swap colours) */
+  --grad-hero: radial-gradient(120% 90% at 80% 20%, var(--navy-700) 0%, var(--navy-900) 40%, var(--navy-950) 100%);
+  --grad-page-hero: radial-gradient(120% 120% at 85% 0%, var(--navy-700) 0%, var(--navy-900) 45%, var(--navy-950) 100%);
+  --grad-band: linear-gradient(100deg, var(--navy-950) 0%, var(--navy-900) 55%, var(--navy-800) 100%);
+  --grad-cta: linear-gradient(100deg, var(--navy-950) 0%, var(--navy-900) 50%, var(--navy-600) 100%);
+  --grad-soft: linear-gradient(160deg, #fff8dd 0%, #ffecad 100%);
+  --grid-lines: linear-gradient(rgb(var(--grid-rgb) / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--grid-rgb) / 0.07) 1px, transparent 1px);
+
+  /* Type: Poppins throughout; Playfair Display italic for the accent word in section titles */
+  --font-display: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-accent: 'Playfair Display Variable', 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+  --fw-regular: 400; /* body text */
+  --fw-medium: 500; /* navigation, emphasis */
+  --fw-semibold: 600; /* headings, buttons, labels */
+  --fw-bold: 700; /* hero titles, large figures */
+  --fs-h1: clamp(34px, 4.8vw, 58px);
+  --fs-h1-page: clamp(32px, 4.4vw, 52px);
+  --fs-h2: clamp(26px, 2.8vw, 36px);
+  --fs-body: 15px;
+
+  /* Layout */
+  --container: 1240px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --section-y: clamp(64px, 8vw, 96px);
+  --section-y-lg: clamp(64px, 8vw, 104px);
+  --header-h: 88px; /* fixed header: 3px logo stripe + 84px bar + 1px border */
+  --header-offset: 88px; /* anchor jumps land below the compact (scrolled) header */
+
+  /* Shape */
+  --r-2xl: 28px;
+  --r-xl: 24px;
+  --r-lg: 22px;
+  --r-md: 20px;
+  --r-sm: 18px;
+  --r-xs: 14px;
+  --r-2xs: 12px;
+  --r-pill: 999px;
+
+  /* Elevation */
+  --shadow-sm: 0 4px 18px rgb(var(--navy-rgb) / 0.07);
+  --shadow-card: 0 6px 24px rgb(var(--navy-rgb) / 0.06);
+  --shadow-hover: 0 22px 48px rgb(var(--navy-rgb) / 0.16);
+  --shadow-float: 0 24px 60px rgb(var(--navy-rgb) / 0.12);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Colour-coded icons: gold award icons to match. */
+:root[data-icons='color'] {
+  --award-bg: var(--yellow-soft);
+  --award-fg: var(--yellow-ink);
+}
+
+/* The alternative themes use their own accent in place of the five logo colours. */
+:root[data-theme='steel'],
+:root[data-theme='orange'],
+:root[data-theme='teal'] {
+  --brand-rule: linear-gradient(var(--accent-fill), var(--accent-fill));
+  --blue: var(--accent-fill);
+  --blue-on: var(--on-accent);
+  --blue-soft: var(--accent-100);
+  --blue-ink: var(--accent-ink);
+  --blue-light: var(--accent);
+  --blue-rgb: var(--accent-fill-rgb);
+  --yellow: var(--accent-fill);
+  --yellow-on: var(--on-accent);
+  --yellow-soft: var(--accent-100);
+  --yellow-ink: var(--accent-ink);
+  --yellow-light: var(--accent);
+  --yellow-rgb: var(--accent-fill-rgb);
+  --magenta: var(--accent-fill);
+  --magenta-on: var(--on-accent);
+  --magenta-soft: var(--accent-100);
+  --magenta-ink: var(--accent-ink);
+  --magenta-light: var(--accent);
+  --magenta-rgb: var(--accent-fill-rgb);
+  --cyan: var(--accent-fill);
+  --cyan-on: var(--on-accent);
+  --cyan-soft: var(--accent-100);
+  --cyan-ink: var(--accent-ink);
+  --cyan-light: var(--accent);
+  --cyan-rgb: var(--accent-fill-rgb);
+  --purple: var(--accent-fill);
+  --purple-on: var(--on-accent);
+  --purple-soft: var(--accent-100);
+  --purple-ink: var(--accent-ink);
+  --purple-light: var(--accent);
+  --purple-rgb: var(--accent-fill-rgb);
+}
+
+/* Alternative: steel blue + dark slate (the colours of the Altech reference site). */
+:root[data-theme='steel'] {
+  --navy-950: #161c29;
+  --navy-900: #1e2637;
+  --navy-800: #253047;
+  --navy-700: #2f3c58;
+  --navy-600: #2d4a8a;
+  --navy-hover: #2d4a8a;
+  --navy-rgb: 30 38 55;
+  --accent-fill: #2d4a8a;
+  --accent-fill-hover: #3a5ba8;
+  --accent-fill-rgb: 45 74 138;
+  --on-accent: #ffffff;
+  --dark-fill: #2d4a8a;
+  --dark-fill-hover: #3a5ba8;
+  --dark-fill-rgb: 45 74 138;
+  --on-dark-fill: #ffffff;
+  --accent: #9db4ec;
+  --accent-hover: #c2d1f6;
+  --accent-rgb: 157 180 236;
+  --accent-ink: #2d4a8a;
+  --accent-ink-strong: #233c72;
+  --accent-ink-rgb: 45 74 138;
+  --accent-50: #f1f4fb;
+  --accent-100: #e3e9f6;
+  --focus-ring: #2d4a8a;
+  --grid-rgb: 157 180 236;
+  --grad-soft: linear-gradient(160deg, #eef2fb 0%, #dce5f6 100%);
+}
+
+/* Alternative: midnight blue + signal orange. */
+:root[data-theme='orange'] {
+  --navy-950: #0a1120;
+  --navy-900: #0f1b31;
+  --navy-800: #172742;
+  --navy-700: #1d3252;
+  --navy-600: #243c61;
+  --navy-hover: #1a2a47;
+  --navy-rgb: 10 17 32;
+  --accent: #f97316;
+  --accent-hover: #fb8b3d;
+  --accent-rgb: 249 115 22;
+  --accent-fill: var(--accent);
+  --accent-fill-hover: var(--accent-hover);
+  --accent-fill-rgb: var(--accent-rgb);
+  --on-accent: #1f0f05;
+  --dark-fill: var(--accent);
+  --dark-fill-hover: var(--accent-hover);
+  --dark-fill-rgb: var(--accent-rgb);
+  --on-dark-fill: #1f0f05;
+  --accent-ink: #ea580c;
+  --accent-ink-strong: #c2410c;
+  --accent-ink-rgb: 234 88 12;
+  --accent-50: #fff6ed;
+  --accent-100: #ffebd6;
+  --focus-ring: #ea580c;
+  --grid-rgb: 150 180 225;
+  --award-bg: #e7eef8;
+  --award-fg: #25497f;
+  --grad-soft: linear-gradient(160deg, #fff4e8 0%, #ffe3c8 100%);
+}
+
+/* Alternative: the original design palette, navy + teal. */
+:root[data-theme='teal'] {
+  --navy-950: #06162a;
+  --navy-900: #0a2340;
+  --navy-800: #10385b;
+  --navy-700: #123a5c;
+  --navy-600: #173f63;
+  --navy-hover: #0a2d52;
+  --navy-rgb: 6 22 42;
+  --accent: #14d4b4;
+  --accent-hover: #3ee6c9;
+  --accent-rgb: 20 212 180;
+  --accent-fill: var(--accent);
+  --accent-fill-hover: var(--accent-hover);
+  --accent-fill-rgb: var(--accent-rgb);
+  --on-accent: #04211c;
+  --dark-fill: var(--accent);
+  --dark-fill-hover: var(--accent-hover);
+  --dark-fill-rgb: var(--accent-rgb);
+  --on-dark-fill: #04211c;
+  --accent-ink: #0b8f7c;
+  --accent-ink-strong: #0a7a6a;
+  --accent-ink-rgb: 11 143 124;
+  --accent-50: #f0fbf9;
+  --accent-100: #e3f8f4;
+  --focus-ring: #0b8f7c;
+  --grid-rgb: 20 212 180;
+  --award-bg: #fff4d6;
+  --award-fg: #b07a00;
+  --grad-soft: linear-gradient(160deg, #e6faf6 0%, #d3f3ec 100%);
+}

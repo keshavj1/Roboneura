@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roboneura.com/sitemap.xml

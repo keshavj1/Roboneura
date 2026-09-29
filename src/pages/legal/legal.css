@@ -1,0 +1,35 @@
+.legal {
+  max-width: 780px;
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: var(--r-xl);
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.legal__intro {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.legal section {
+  margin-top: 32px;
+}
+
+.legal h2 {
+  font-size: 20px;
+  font-weight: var(--fw-semibold);
+}
+
+.legal section p {
+  margin-top: 10px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.legal a {
+  font-weight: var(--fw-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

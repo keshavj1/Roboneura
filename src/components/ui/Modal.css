@@ -1,0 +1,78 @@
+.modal {
+  --modal-w: 880px;
+  width: min(var(--modal-w), calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-xl);
+  background: transparent;
+  color: var(--ink);
+  overflow: visible;
+}
+
+.modal::backdrop {
+  background: rgb(var(--navy-rgb) / 0.85);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.modal--lg {
+  --modal-w: 980px;
+}
+
+.modal--video {
+  --modal-w: 960px;
+}
+
+.modal__panel {
+  position: relative;
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--r-xl);
+  background: #fff;
+}
+
+.modal--video .modal__panel {
+  --focus-ring: var(--accent);
+  overflow: hidden;
+  background: var(--navy-900);
+}
+
+.modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy-950);
+  font-size: 20px;
+  box-shadow: 0 4px 14px rgb(var(--navy-rgb) / 0.18);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.modal__close:hover {
+  background: #fff;
+  color: var(--accent-ink);
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .modal[open]::backdrop {
+    animation: rnFadeIn 0.25s ease;
+  }
+
+  .modal[open] .modal__panel {
+    animation: rnZoomIn 0.3s var(--ease-out);
+  }
+}

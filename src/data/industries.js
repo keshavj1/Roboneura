@@ -1,0 +1,138 @@
+import { img } from '../lib/assets';
+import {
+  BridgeIcon,
+  FactoryIcon,
+  FlaskIcon,
+  HardHatIcon,
+  LightningIcon,
+  PlantIcon,
+  ShieldCheckIcon,
+  TruckIcon,
+} from '../components/ui/icons';
+
+/*
+ * Industries served. `id` is also the anchor on the Industries page (/industries#energy).
+ * `solutions` lists solution ids (see solutions.js) shown as related tags.
+ */
+export const industries = [
+  {
+    id: 'manufacturing',
+    name: 'Manufacturing',
+    icon: FactoryIcon,
+    image: img('ind-manufacturing.webp'),
+    imagePosition: 'center',
+    imageAlt: 'Robot arms assembling a car body on a factory line',
+    summary: 'Inspection, material handling and shop-floor automation that keep lines running and quality consistent.',
+    useCases: [
+      'Autonomous mobile robots for line-side material transport',
+      'Vision-based defect detection and quality inspection',
+      'Robotic pick-and-place, packing and palletising',
+    ],
+    solutions: ['robotics', 'automation', 'vision'],
+  },
+  {
+    id: 'infrastructure',
+    name: 'Infrastructure',
+    icon: BridgeIcon,
+    image: img('ind-infrastructure.webp'),
+    imagePosition: 'center',
+    imageAlt: 'Aerial view of a cable-stayed bridge over water',
+    summary: 'Asset inspection, site surveys and remote monitoring for bridges, highways, tunnels and utilities.',
+    useCases: [
+      'Drone inspection of bridges, highways and structures',
+      'Photogrammetry, mapping and digital survey data',
+      'Crack and corrosion detection with computer vision',
+    ],
+    solutions: ['drones', 'vision'],
+  },
+  {
+    id: 'agriculture',
+    name: 'Agriculture',
+    icon: PlantIcon,
+    image: img('ind-agriculture.webp'),
+    imagePosition: 'center',
+    imageAlt: 'Top-down aerial view of a green crop field with tractor lines',
+    summary: 'Aerial imaging, field intelligence and precision workflows that help farms do more with less.',
+    useCases: [
+      'Crop health monitoring with multispectral imaging',
+      'Precision spraying and variable-rate application',
+      'Field mapping, counting and yield estimation',
+    ],
+    solutions: ['drones', 'vision'],
+  },
+  {
+    id: 'logistics',
+    name: 'Logistics',
+    icon: TruckIcon,
+    image: img('ind-logistics.webp'),
+    imagePosition: 'center',
+    imageAlt: 'Automated conveyor system moving goods through a facility',
+    summary: 'Autonomous movement, sorting and inventory support for warehouses and distribution centres.',
+    useCases: [
+      'Warehouse AMRs for goods-to-person movement',
+      'Automated sorting, scanning and parcel tracking',
+      'Inventory audits with drones and vision',
+    ],
+    solutions: ['robotics', 'automation', 'vision'],
+  },
+  {
+    id: 'energy',
+    name: 'Energy & Utilities',
+    icon: LightningIcon,
+    image: img('ind-energy.webp'),
+    imagePosition: 'center',
+    imageAlt: 'Aerial view of rows of solar panels on farmland',
+    summary: 'Inspection and data capture for distributed assets such as solar farms, power lines and substations.',
+    useCases: [
+      'Solar panel cleaning and thermal inspection',
+      'Power line and tower inspection by drone',
+      'Remote monitoring of substations and plants',
+    ],
+    solutions: ['drones', 'robotics', 'vision'],
+  },
+  {
+    id: 'research',
+    name: 'Research & Academia',
+    icon: FlaskIcon,
+    image: img('ind-research.webp'),
+    imagePosition: 'center',
+    imageAlt: 'Engineer assembling drone electronics in a robotics lab',
+    summary: 'Robotics platforms for prototyping, applied research and hands-on engineering education.',
+    useCases: [
+      'ROS-based research robots and test platforms',
+      'Custom drone testbeds and payload integration',
+      'Lab automation and training kits for institutions',
+    ],
+    solutions: ['robotics', 'drones'],
+  },
+  {
+    id: 'defense',
+    name: 'Defense & Security',
+    icon: ShieldCheckIcon,
+    image: img('ind-defense.webp'),
+    imagePosition: 'center',
+    imageAlt: 'Compact quadcopter drone in flight against a grey sky',
+    summary: 'Surveillance, perimeter monitoring and situational awareness for critical sites.',
+    useCases: [
+      'Perimeter patrol and surveillance robots',
+      'Aerial monitoring of large or remote sites',
+      'Vision-based intrusion and anomaly detection',
+    ],
+    solutions: ['robotics', 'drones', 'vision'],
+  },
+  {
+    id: 'construction',
+    name: 'Construction',
+    icon: HardHatIcon,
+    image: img('ind-construction.webp'),
+    imagePosition: 'center 40%',
+    imageAlt: 'Drone view of excavators working on a street construction site',
+    summary: 'Site surveys, progress tracking and safety monitoring from groundbreaking to handover.',
+    useCases: [
+      'Drone site surveys and progress mapping',
+      'Stockpile and earthwork volume measurement',
+      'Safety and PPE compliance monitoring',
+    ],
+    solutions: ['drones', 'vision'],
+  },
+];

@@ -1,0 +1,62 @@
+.sh__title {
+  margin-top: 12px;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.sh__text > .sh__title:first-child {
+  margin-top: 0;
+}
+
+.sh--sm .sh__title {
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.3;
+}
+
+/* Short bar in the five logo colours under every section title. */
+.sh__bar {
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin-top: 18px;
+  border-radius: 2px;
+  background: var(--brand-rule);
+}
+
+.sh--center .sh__bar {
+  margin-inline: auto;
+}
+
+.sh__lead {
+  margin-top: 18px;
+  max-width: 560px;
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--fg-muted, var(--muted));
+}
+
+.sh--split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sh--split .sh__text {
+  max-width: 620px;
+}
+
+.sh--center {
+  text-align: center;
+}
+
+.sh--center .sh__text {
+  margin-inline: auto;
+}
+
+.sh--center .sh__lead {
+  margin-inline: auto;
+}

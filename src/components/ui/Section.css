@@ -1,0 +1,71 @@
+.section {
+  position: relative;
+  background: var(--section-bg);
+  color: var(--fg);
+}
+
+.section--md {
+  padding-block: var(--section-y);
+}
+
+.section--lg {
+  padding-block: var(--section-y-lg);
+}
+
+.section--sm {
+  padding-block: clamp(48px, 6vw, 72px);
+}
+
+.section--none {
+  padding-block: 0;
+}
+
+.section--flush-top {
+  padding-top: 0;
+}
+
+/* Tones expose colour variables that nested components read (headings, eyebrows, links). */
+.tone-light,
+.tone-white {
+  --fg: var(--ink);
+  --fg-muted: var(--muted);
+  --eyebrow: var(--accent-ink-strong);
+  --link: var(--accent-ink-strong);
+  --link-hover: var(--accent-ink);
+}
+
+.tone-light {
+  --section-bg: var(--bg);
+}
+
+.tone-white {
+  --section-bg: var(--surface);
+}
+
+.tone-navy,
+.tone-band {
+  --fg: #fff;
+  --fg-muted: rgba(255, 255, 255, 0.74);
+  --eyebrow: var(--accent);
+  --link: var(--accent);
+  --focus-ring: var(--accent);
+  --link-hover: var(--accent-hover);
+}
+
+.tone-navy {
+  --section-bg: var(--navy-950);
+}
+
+.tone-band {
+  --section-bg: var(--grad-band);
+  overflow: hidden;
+}
+
+/* Small "* Placeholder ..." notes (hidden via site.flags.showPlaceholderNotes). */
+.ph-note {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg-muted, var(--muted));
+  opacity: 0.8;
+}

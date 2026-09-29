@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROBONEURA Dynamics | Robotics, Drones &amp; Automation</title>
+    <meta
+      name="description"
+      content="ROBONEURA DYNAMICS PRIVATE LIMITED designs and deploys intelligent robotic, drone, automation and computer vision systems for industry. Based in Lucknow, India."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+
+    <!-- Social sharing (static, because link-preview crawlers do not run JavaScript) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ROBONEURA Dynamics" />
+    <meta property="og:title" content="ROBONEURA Dynamics | Robotics, Drones &amp; Automation" />
+    <meta
+      property="og:description"
+      content="Intelligent robotic, drone, automation and computer vision systems, engineered in Lucknow and deployed across industry."
+    />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ROBONEURA DYNAMICS PRIVATE LIMITED",
+        "alternateName": "ROBONEURA",
+        "url": "%VITE_SITE_URL%",
+        "logo": "%VITE_SITE_URL%/images/brand/logo-full.png",
+        "email": "info@roboneura.com",
+        "telephone": "+91 522 123 4567",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "B2-0205, 2nd Floor, DLF MyPad, Vibhuti Khand, Gomti Nagar",
+          "addressLocality": "Lucknow",
+          "addressRegion": "Uttar Pradesh",
+          "postalCode": "226010",
+          "addressCountry": "IN"
+        }
+      }
+    </script>
+
+    <!-- Preloader: painted before the JavaScript bundle arrives; removed by src/lib/preloader.js -->
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        animation: rn-pl-failsafe 0.5s ease 4s forwards;
+      }
+      #preloader.is-done {
+        opacity: 0;
+        visibility: hidden;
+      }
+      #preloader .rn-pl {
+        position: relative;
+        width: 96px;
+        height: 96px;
+        display: grid;
+        place-items: center;
+      }
+      #preloader .rn-pl::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 3px solid rgba(35, 62, 152, 0.14);
+        border-top-color: #233e98;
+        border-right-color: #fec603;
+        animation: rn-pl-spin 0.9s linear infinite;
+      }
+      #preloader img {
+        width: 54px;
+        height: auto;
+      }
+      @keyframes rn-pl-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes rn-pl-failsafe {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #preloader .rn-pl::before {
+          animation: none;
+        }
+      }
+    </style>
+    <noscript><style>#preloader { display: none; }</style></noscript>
+  </head>
+  <body>
+    <div id="preloader" aria-hidden="true">
+      <div class="rn-pl">
+        <img src="/images/brand/logo-mark.png" alt="" width="320" height="240" />
+      </div>
+    </div>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 24px; font-family: system-ui, sans-serif">
+        This website needs JavaScript. You can reach ROBONEURA DYNAMICS PRIVATE LIMITED at
+        <a href="mailto:info@roboneura.com">info@roboneura.com</a> or +91 522 123 4567.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

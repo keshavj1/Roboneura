@@ -1,0 +1,366 @@
+/*
+ * White header with the logo stripe along its top edge. Wide screens (1200px+): the logo sits in
+ * its own column with a divider. The optional info bar (site.flags.showHeaderInfoBar: address,
+ * email, hours, social) adds a row above the navigation and folds away on scroll.
+ */
+.site-header {
+  --focus-ring: var(--accent-ink);
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  overflow-x: clip; /* the rule under the info bar runs to the window edge */
+  background: #fff;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line-soft);
+  transition: box-shadow 0.3s ease;
+}
+
+/* The five logo colours along the top edge. */
+.site-header::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: var(--brand-rule);
+}
+
+.site-header.is-scrolled,
+.site-header.is-open {
+  box-shadow: 0 10px 30px rgb(var(--navy-rgb) / 0.1);
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+}
+
+/* Main row: navigation, call to action, menu toggle */
+.site-header__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  min-height: 84px;
+  transition: min-height 0.3s ease;
+}
+
+.site-header.is-scrolled .site-header__bar {
+  min-height: 64px;
+}
+
+/* Desktop navigation */
+.site-nav {
+  align-self: stretch;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 26px;
+  height: 100%;
+}
+
+.site-nav li {
+  display: flex;
+}
+
+.site-nav__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 14.5px;
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* Active page: a bar on the header's bottom edge, as in the reference design. */
+.site-nav__link::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  background: var(--accent-ink);
+  transform: scaleX(0);
+  transition: transform 0.25s var(--ease-out);
+}
+
+.site-nav__link:hover,
+.site-nav__link.active {
+  color: var(--accent-ink);
+}
+
+.site-nav__link.active::after {
+  transform: none;
+}
+
+/* Info bar (only when site.flags.showHeaderInfoBar is on) */
+.topbar {
+  display: none;
+}
+
+.topbar__info,
+.topbar__social {
+  display: flex;
+  align-items: center;
+}
+
+.topbar__info li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.topbar__info li + li,
+.topbar__social {
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 1px solid var(--line-soft);
+}
+
+.topbar__info svg {
+  flex: none;
+  font-size: 17px;
+  color: var(--icon);
+}
+
+.topbar a {
+  color: var(--muted);
+}
+
+.topbar a:hover {
+  color: var(--accent-ink);
+}
+
+.topbar__social {
+  gap: 2px;
+}
+
+.topbar__social a {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: 15px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.topbar__social a:hover {
+  background: var(--accent-50);
+  color: var(--accent-ink);
+}
+
+/* Mobile menu toggle */
+.site-header__toggle {
+  display: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 22px;
+}
+
+.mobile-nav {
+  border-top: 1px solid var(--line-soft);
+  background: #fff;
+  max-height: calc(100dvh - var(--header-h));
+  overflow-y: auto;
+}
+
+.mobile-nav[hidden] {
+  display: none;
+}
+
+.mobile-nav nav {
+  padding-top: 8px;
+  padding-bottom: 24px;
+}
+
+.mobile-nav__link {
+  display: block;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+}
+
+.mobile-nav__link:hover,
+.mobile-nav__link.active {
+  color: var(--accent-ink);
+}
+
+.mobile-nav__cta {
+  margin-top: 18px;
+}
+
+.mobile-nav__contact {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.mobile-nav__contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.mobile-nav__contact svg {
+  flex: none;
+  margin-top: 1px;
+  font-size: 18px;
+  color: var(--hue-ink, var(--icon));
+}
+
+.mobile-nav__contact a {
+  color: var(--muted);
+}
+
+.mobile-nav__contact a:hover {
+  color: var(--accent-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-nav:not([hidden]) {
+    animation: rnFadeIn 0.2s ease;
+  }
+}
+
+/* Tablets and phones: menu button instead of the navigation. */
+@media (max-width: 999.98px) {
+  .site-header .site-nav,
+  .site-header .site-header__cta {
+    display: none;
+  }
+
+  .site-header__toggle {
+    display: grid;
+  }
+}
+
+@media (min-width: 1000px) {
+  .mobile-nav {
+    display: none !important;
+  }
+}
+
+/* Small laptops: one row, tighter navigation, no button (the menu has "Contact"). */
+@media (min-width: 1000px) and (max-width: 1199.98px) {
+  .site-nav ul {
+    gap: 18px;
+  }
+
+  .site-nav__link {
+    font-size: 14px;
+  }
+
+  .site-header .site-header__cta {
+    display: none;
+  }
+}
+
+/* Wide screens: logo column with a divider, as in the reference header. */
+@media (min-width: 1200px) {
+  .site-header__brand {
+    grid-row: 1 / span 2;
+    align-self: stretch;
+    margin-right: 32px;
+    padding-right: 32px;
+    border-right: 1px solid var(--line-soft);
+  }
+
+  .site-header__bar {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* With the info bar: a 44px row above the navigation. */
+  :root:has(.site-header--info) {
+    --header-h: 124px;
+  }
+
+  .site-header--info .topbar {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 44px;
+    overflow: hidden;
+    font-size: 13px;
+    color: var(--muted);
+    transition:
+      height 0.3s ease,
+      opacity 0.2s ease,
+      visibility 0s linear 0s;
+  }
+
+  .site-header--info.is-scrolled .topbar {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      height 0.3s ease,
+      opacity 0.2s ease,
+      visibility 0s linear 0.3s;
+  }
+
+  .site-header--info .site-header__bar {
+    min-height: 76px;
+  }
+
+  /* Rule between the info bar and the navigation: from the logo divider to the window edge. */
+  .site-header--info .site-header__bar::before {
+    content: '';
+    position: absolute;
+    inset: 0 -100vw auto -32px;
+    border-top: 1px solid var(--line-soft);
+    transition: opacity 0.3s ease;
+  }
+
+  .site-header--info.is-scrolled .site-header__bar::before {
+    opacity: 0;
+  }
+}
+
+/* 1200–1319px: tighter spacing so the eight links and the button fit beside the logo. */
+@media (min-width: 1200px) and (max-width: 1319.98px) {
+  .site-header__brand {
+    margin-right: 24px;
+    padding-right: 24px;
+  }
+
+  .site-header--info .site-header__bar::before {
+    left: -24px;
+  }
+
+  .site-nav ul {
+    gap: 18px;
+  }
+
+  .site-nav__link {
+    font-size: 14px;
+  }
+
+  .topbar__info .topbar__hours {
+    display: none;
+  }
+}

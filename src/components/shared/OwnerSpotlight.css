@@ -1,0 +1,150 @@
+/* Portrait with a tinted backplate, a dot pattern and a designation badge */
+.owner-portrait {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+  padding: 0 0 26px 26px;
+}
+
+.owner-portrait::before {
+  content: '';
+  position: absolute;
+  inset: 26px 26px 0 0;
+  border-radius: var(--r-xl);
+  background: var(--accent-100);
+}
+
+.owner-portrait::after {
+  content: '';
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 112px;
+  height: 112px;
+  background-image: radial-gradient(rgb(var(--accent-ink-rgb) / 0.35) 2px, transparent 2.5px);
+  background-size: 16px 16px;
+}
+
+.owner-portrait__frame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-float);
+}
+
+.owner-portrait__badge {
+  position: absolute;
+  left: 0;
+  bottom: 64px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: calc(100% - 40px);
+  padding: 16px 22px 16px 18px;
+  border-left: 5px solid var(--navy-900);
+  border-radius: 0 var(--r-xs) var(--r-xs) 0;
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  box-shadow: 0 16px 36px rgb(var(--accent-fill-rgb) / 0.3);
+}
+
+.owner-portrait__badge-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+
+.owner-portrait__badge-sub {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* "Meet the Owner" section */
+.owner-spot {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  gap: clamp(44px, 6vw, 80px);
+  align-items: center;
+}
+
+.owner-spot__quote {
+  position: relative;
+  margin: 26px 0 0;
+  padding: 22px 64px 22px 26px;
+  border-left: 3px solid var(--accent-ink);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: var(--accent-50);
+}
+
+.owner-spot__quote p {
+  position: relative;
+  font-size: 17px;
+  font-weight: var(--fw-medium);
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.owner-spot__quote-icon {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 44px;
+  color: rgb(var(--navy-rgb) / 0.14);
+}
+
+.owner-spot__intro {
+  margin-top: 20px;
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.owner-spot__sign {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 22px;
+}
+
+.owner-spot__name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+}
+
+.owner-spot__role {
+  font-size: 14px;
+  color: var(--accent-ink-strong);
+}
+
+.owner-spot__cta {
+  margin-top: 26px;
+}
+
+@media (max-width: 480px) {
+  .owner-portrait {
+    padding: 0 0 18px 18px;
+  }
+
+  .owner-portrait::before {
+    inset: 18px 18px 0 0;
+  }
+
+  .owner-portrait::after {
+    display: none;
+  }
+
+  .owner-portrait__badge {
+    bottom: 40px;
+    padding: 12px 16px 12px 14px;
+  }
+
+  .owner-portrait__badge-title {
+    font-size: 15px;
+  }
+}

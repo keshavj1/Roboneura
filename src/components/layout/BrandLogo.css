@@ -1,0 +1,69 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand__mark {
+  display: block;
+  width: auto;
+  height: 44px;
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.brand__wordmark {
+  display: block;
+  width: auto;
+  height: 15px;
+}
+
+.brand__sub {
+  font-size: 8.5px;
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  letter-spacing: 0.19em;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.brand--light .brand__sub {
+  font-weight: var(--fw-semibold);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Footer */
+.brand--lg {
+  gap: 14px;
+}
+
+.brand--lg .brand__mark {
+  height: 60px;
+}
+
+.brand--lg .brand__wordmark {
+  height: 19px;
+}
+
+.brand--lg .brand__sub {
+  font-size: 10.5px;
+}
+
+@media (max-width: 480px) {
+  .brand--md .brand__mark {
+    height: 38px;
+  }
+
+  .brand--md .brand__wordmark {
+    height: 13px;
+  }
+
+  .brand--md .brand__sub {
+    font-size: 7.5px;
+  }
+}

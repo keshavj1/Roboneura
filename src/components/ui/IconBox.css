@@ -1,0 +1,63 @@
+/*
+ * One-colour icons: black on light backgrounds, white on dark ones. With data-icons="color" on <html>,
+ * each item's logo colour (--hue-*, from its .hue-* class) is used instead.
+ */
+.iconbox {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: var(--ib-size);
+  height: var(--ib-size);
+  border-radius: calc(var(--ib-size) * 0.28);
+  font-size: var(--ib-icon);
+  line-height: 1;
+}
+
+.iconbox--circle {
+  border-radius: 50%;
+}
+
+/* Light backgrounds */
+.iconbox--soft {
+  background: var(--hue-soft, var(--icon-bg));
+  color: var(--hue-ink, var(--icon));
+}
+
+.iconbox--solid {
+  background: var(--hue, var(--icon));
+  color: var(--hue-on, #fff);
+  box-shadow: 0 6px 16px rgb(var(--hue-rgb, var(--navy-rgb)) / 0.3);
+}
+
+.iconbox--white {
+  background: #fff;
+  color: var(--hue-ink, var(--icon));
+  box-shadow: 0 8px 24px rgb(var(--navy-rgb) / 0.1);
+}
+
+.iconbox--muted {
+  background: var(--hue-soft, var(--icon-bg));
+  color: var(--hue-ink, var(--icon));
+}
+
+.iconbox--award {
+  background: var(--award-bg);
+  color: var(--award-fg);
+}
+
+.iconbox--mint {
+  background: var(--icon-bg);
+  color: var(--icon);
+}
+
+/* Dark backgrounds */
+.iconbox--glass {
+  background: rgb(var(--hue-rgb, 255 255 255) / 0.12);
+  color: var(--hue-light, var(--icon-on-dark));
+}
+
+.iconbox--glass-ring {
+  background: rgb(var(--hue-rgb, 255 255 255) / 0.08);
+  border: 1px solid rgb(var(--hue-rgb, 255 255 255) / 0.35);
+  color: var(--hue-light, var(--icon-on-dark));
+}

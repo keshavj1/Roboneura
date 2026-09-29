@@ -1,0 +1,55 @@
+.cta {
+  --focus-ring: var(--accent);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  align-items: center;
+  max-width: 1160px;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: var(--r-2xl);
+  background: var(--grad-cta);
+  color: #fff;
+}
+
+.cta__body {
+  padding: clamp(32px, 5vw, 56px);
+}
+
+.cta__title {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+
+.cta__text {
+  margin-top: 14px;
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.cta__button {
+  margin-top: 26px;
+}
+
+.cta__media {
+  position: relative;
+  align-self: stretch;
+  min-height: 240px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
+}
+
+.cta__media .media {
+  background: transparent;
+}
+
+@media (max-width: 760px) {
+  .cta__media {
+    order: -1;
+    min-height: 200px;
+    -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 45%);
+    mask-image: linear-gradient(0deg, transparent 0%, #000 45%);
+  }
+}

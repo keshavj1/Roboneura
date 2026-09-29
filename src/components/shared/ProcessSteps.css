@@ -1,0 +1,36 @@
+.process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.process__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.process__line {
+  flex: 1;
+  height: 0;
+  border-top: 2px dashed var(--line-dash);
+}
+
+.process__title {
+  margin-top: 20px;
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+}
+
+.process__num {
+  color: var(--hue-ink, var(--accent-ink-strong));
+}
+
+.process__text {
+  max-width: 240px;
+  margin-top: 6px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--fg-muted, var(--muted));
+}

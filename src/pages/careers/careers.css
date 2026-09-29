@@ -1,0 +1,38 @@
+.perks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+  margin-top: 44px;
+}
+
+.perks > li {
+  display: flex;
+}
+
+.perk {
+  flex: 1;
+  padding: 28px 24px;
+  border-radius: var(--r-lg);
+  background: var(--bg);
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.perk:hover {
+  background: var(--accent-50);
+  transform: translateY(-3px);
+}
+
+.perk__title {
+  margin-top: 18px;
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+}
+
+.perk__text {
+  margin-top: 8px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}

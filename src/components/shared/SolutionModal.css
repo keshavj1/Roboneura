@@ -1,0 +1,108 @@
+.solution-modal {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  --fg: var(--ink);
+  --fg-muted: var(--muted);
+  --eyebrow: var(--hue-ink, var(--accent-ink-strong));
+}
+
+.solution-modal .check-list svg,
+.solution-modal__uses li::marker {
+  color: var(--hue-ink, var(--icon));
+}
+
+.solution-modal__media {
+  position: relative;
+  min-height: 100%;
+}
+
+.solution-modal__body {
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.solution-modal__title {
+  margin-top: 14px;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+}
+
+.solution-modal__text {
+  margin-top: 12px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.solution-modal__subtitle {
+  margin-top: 24px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.solution-modal__list {
+  margin-top: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+}
+
+.solution-modal__uses {
+  margin-top: 10px;
+  padding-left: 18px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.solution-modal .tag-list {
+  margin-top: 12px;
+}
+
+.solution-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+@media (max-width: 760px) {
+  .solution-modal {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-modal__media {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Small linked tags (also used on the Industries page) */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: var(--accent-50);
+  color: var(--accent-ink-strong);
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.tag:hover {
+  background: var(--accent-100);
+  color: var(--ink);
+}
